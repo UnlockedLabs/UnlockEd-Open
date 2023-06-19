@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>12. Class Design &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="13. Blog Design" href="blog-design.html" />
+    <link rel="prev" title="11. Counting Characters" href="counting-characters.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="class-design">
+<h1>12. Class Design<a class="headerlink" href="#class-design" title="Permalink to this headline">¶</a></h1>
+<p><em>Studios are in-class activities to give you hands-on practice with new concepts. The first half is the Walkthrough, an instructor-led programming problem. The second half is for you to work on individually or in pairs in class.</em></p>
+<p><em>These problems are not graded, and you are not obligated to finish them. Get as far as you can while in class, and use them as an opportunity to play with and solidify new concepts.</em></p>
+<div class="section" id="walkthrough-and-studio">
+<h2>Walkthrough and Studio<a class="headerlink" href="#walkthrough-and-studio" title="Permalink to this headline">¶</a></h2>
+<p>This studio is an exercise in design. This means you will need to think creatively - there is no one &#8220;right&#8221; solution to these problems, but the choices you make will have an impact on how efficient and easy to use your solution is.</p>
+<p>For each problem below, you are presented with a story. Based on this story, you should design an object in the form of a class. Be sure to consider the <strong>has-a</strong> relationship and the <strong>behaviors</strong> for each object you design.</p>
+<p>We are not in a rush to implement these objects. Good design takes time. It will help to work out your design before you write code, using paper and pencil if necessary.</p>
+<p>Once you have come up with a design for the object, you should implement it. Use your design to help you decide which fields and methods need to be created. Create some simple tests to make sure your implementation behaves as you expect it to.</p>
+<p>We&#8217;ll complete one of these together in class, and you should choose one of the others to complete on your own as the studio portion.</p>
+<div class="section" id="design-problems">
+<h3>Design Problems<a class="headerlink" href="#design-problems" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rectangle">
+<h4>Rectangle<a class="headerlink" href="#rectangle" title="Permalink to this headline">¶</a></h4>
+<p>A rectangle has a length and a width. A rectangle should be able to provide its area and perimeter. A rectangle can indicate whether it is smaller than another rectangle in terms of area. A rectangle can indicate whether it is in fact a square.</p>
+
+<textarea data-component="activecode" id=class_design_rectangle data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div>
+<div class="section" id="fraction">
+<h4>Fraction<a class="headerlink" href="#fraction" title="Permalink to this headline">¶</a></h4>
+<p>A fraction has a numerator and denominator. A fraction should be able to add itself to another fraction, returning a new fraction that represents the sum. A fraction should be able to multiply itself by another fraction, returning a new fraction as the product. A fraction should be able to take the reciprocal of itself, returning that value as a new fraction. A fraction should be able to simplify itself, returning a new fraction as that simplification.</p>
+
+<textarea data-component="activecode" id=class_design_fraction data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div>
+<div class="section" id="baseballplayer">
+<h4>BaseballPlayer<a class="headerlink" href="#baseballplayer" title="Permalink to this headline">¶</a></h4>
+<p>A baseball player has a name and a jersey number. Most players hit either right or left, but some can hit either way. This object should be able to react when a player completes a game, recording how many hits and RBIs the player earned in that game. A player has a certain number of runs and RBIs he or she has recorded over all games played. A player has a certain number of games he or she has played.</p>
+
+<textarea data-component="activecode" id=class_design_baseball_player data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div>
+</div>
+<div class="section" id="bonus-missions">
+<h3>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h3>
+<p>These classes are a bit more involved than the ones above. You&#8217;ll need to design and implement a working Student class before the Course class can work appropriately. Make sure to use your Student object within the Course object when it is appropriate to do so!</p>
+</div>
+<div class="section" id="student">
+<h3>Student<a class="headerlink" href="#student" title="Permalink to this headline">¶</a></h3>
+<p>A student has a name and student ID number. A student can record grades and will track how many credits they have taken as well as their GPA. A student can also report what their class standing is (Freshman, Sophomore, Junior, Senior, Graduated) based on the number of credits they have taken.</p>
+
+<textarea data-component="activecode" id=class_design_student data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div>
+<div class="section" id="course">
+<h3>Course<a class="headerlink" href="#course" title="Permalink to this headline">¶</a></h3>
+<p>A course has a name and course number. A course has a certain number of seats - once those seats are filled, it is not possible for anyone else to take the course. A course has a roster of students (use your student object!). A course can add a student (if there are open seats) or drop a student. A course can report the average GPA of all students currently enrolled in the course.</p>
+
+<textarea data-component="activecode" id=class_design_course data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div>
+</div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 11. Counting Characters' data-toggle="tooltip">
+    <a href="counting-characters.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="counting-characters.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - 13. Blog Design' data-toggle="tooltip" >
+    <a href="blog-design.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="blog-design.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

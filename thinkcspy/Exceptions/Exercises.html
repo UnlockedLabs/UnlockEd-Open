@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Exercises &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="More About Iteration" href="../ChapterHeadings/Heading8.html" />
+    <link rel="prev" title="6. Debugging Review" href="DebuggingReview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="exercises">
+<h1>7. Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><div id='q1' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Solve the following non-coding problem to practice your problem solving skills.</p>
+<p>A farmer is on his way to market with a fox, a chicken, and a bag of corn. He must cross a river to get there. On the bank of the river is a boat that is big enough only for the farmer and one additional item, so he must take the three across one at a time.</p>
+<ul class="simple">
+<li>If the farmer takes the fox first, the chicken will eat the corn.</li>
+<li>If the farmer takes the corn first, the fox will eat the chicken.</li>
+<li>If the farmer takes the chicken first, the fox <em>will not</em> eat the corn. However, he&#8217;ll then have to take either the fox or corn on the next trip, and when left alone to return for the final item one of the first two situations will occur.</li>
+</ul>
+<p>How can the farmer get all three across without losing one?</p>
+</div><div data-component="tab" data-tabname="Answer" >
+<p>We know that the following pairs can&#8217;t be left alone: fox and chicken, chicken and corn. Therefore, we have to start with the chicken. If the farmer takes the chicken across, the corn and fox will be left alone, which is fine.</p>
+<p>When the farmer returns for the next item, he can choose either fox or corn next. Let&#8217;s say he chooses the fox. The farmer takes the fox across the river. But then he can&#8217;t leave the fox and chicken alone, so <em>he must take the chicken back with him</em>. This is the crucial detail to solve this problem.</p>
+<p>The farmer returns the chicken, picks up the bag of corn to take it across and leave with the fox, and then returns for the chicken.</p>
+</div>
+    </div>
+
+</li>
+<li><div id='q2' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Solve the following non-coding problem to practice your problem solving skills.</p>
+<p>You have three boxes that contain some combination of apples and oranges:</p>
+<ul class="simple">
+<li>One has only apples</li>
+<li>One has only oranges</li>
+<li>One has both apples and oranges</li>
+</ul>
+<p>The boxes have labels signifying each of the three, but <em>each box is mislabeled</em>.</p>
+<p>You may ask for one item from one of the boxes to be shown to you. This item will be randomly pulled from the box.</p>
+<p>How can you figure out the correct labeling of the boxes?</p>
+</div><div data-component="tab" data-tabname="Answer" >
+<p>Let&#8217;s imagine the boxes lined up side-by-side. For convenience in discussing them, let&#8217;s say box #1 is on the left, box #2 in the middle, and box #3 is on the right. Let&#8217;s also assume that the labels are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Box #</td>
+<td>Label</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Apples</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Apples and Oranges</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Oranges</td>
+</tr>
+</tbody>
+</table>
+<p>The most important detail in the problem statement is that <em>all of the boxes are mislabeled</em>. This gives us the following options.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Box #</td>
+<td>Label</td>
+<td>Possible Correct Labels</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Apples</td>
+<td>Oranges, Apples and Oranges</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Apples and Oranges</td>
+<td>Apples, Oranges</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Oranges</td>
+<td>Apples, Apples and Oranges</td>
+</tr>
+</tbody>
+</table>
+<p>The next key observation is that if we determine the correct label for any one of the boxes, we&#8217;ll know the correct label for the others by elimination. For example, if we know that box #1 actually contains Oranges only, then that will eliminate Oranges as the possible label for box 2, which will in turn eliminate Apples as the possibility for box #3.</p>
+<p>Therefore we want to find a strategy that allows us to determine the correct label for a single box. Since we&#8217;re only given one choice of box to see one item from, the only choice that will work is box #2. If we&#8217;re shown one item from box #2 and it is an orange, we&#8217;ll know that it must contain oranges only. On the other hand, were we to ask for one item from box #1 and be given an orange, we would still be left with the 2 possibilities listed.</p>
+<p>So our strategy is to ask for an item from box #2. For the sake of example, let&#8217;s assume we&#8217;re given an orange. Then we know that the correct labels have to be:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="44%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Box #</td>
+<td>Label</td>
+<td>Correct Labels</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Apples</td>
+<td>Apples and Oranges</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Apples and Oranges</td>
+<td>Oranges</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Oranges</td>
+<td>Apples</td>
+</tr>
+</tbody>
+</table>
+<p>If we&#8217;re given an apple from box #2, a similar scenario plays out and the correct labels are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="44%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Box #</td>
+<td>Label</td>
+<td>Correct Labels</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Apples</td>
+<td>Oranges</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Apples and Oranges</td>
+<td>Apples</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Oranges</td>
+<td>Apples and Oranges</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+
+</li>
+<li><div id='q3' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Solve the following non-coding problem to practice your problem solving skills.</p>
+<p>You have a job in the quality control department at a ball factory. A coworker left behind 10 boxes of balls. You know that each normal ball weighs 10g, and each defective ball weighs 9g. There are nine boxes consisting of only normal balls, and one box of only defective balls.</p>
+<p>You have a digital scale and can take only one measurement. How can you determine which box contains the defective balls?</p>
+</div><div data-component="tab" data-tabname="Answer" >
+<p>This one requires a much higher degree of creativity than the previous problems. Many students find this extremely difficult.</p>
+<p>Since we only have one chance to use the scale, we must think of a technique that will work no matter which box has the defective/lighter balls.</p>
+<p>Suppose we line up the boxes left-to-right, numbered 1-10. Let&#8217;s take one ball from box #1, two balls from box #2, three balls from box #3, and so on. This will give us 55 balls.</p>
+<p>If we weigh them, we will get a measurement <code class="docutils literal"><span class="pre">w</span></code> that is some number of grams less than 550g, since that would be the weight if all of the balls weighed 10g. Consider the difference:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">550</span> <span class="pre">-</span> <span class="pre">w</span></code></p>
+</div></blockquote>
+<p>This difference will be between 1 and 10, since only one box has 9g balls, and we took between 1 and 10 balls from that box. In fact, this difference tells us which box has the 9g balls. For example, if the difference is 5g, then we know that there were 5 9g balls in the group that we weighted, and thus those balls came from box #5. In general, the difference <code class="docutils literal"><span class="pre">d</span></code> indicates the number of the box containing the defective balls.</p>
+</div>
+    </div>
+
+</li>
+<li><div id='q4' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Fill out the <code class="docutils literal"><span class="pre">main</span></code> function below so that you handle two exceptions that may be raised by your call to <code class="docutils literal"><span class="pre">some_function</span></code>. If this function raises a <code class="docutils literal"><span class="pre">ValueError</span></code>, print &#8220;value error happening now&#8221;; if this function raises a <code class="docutils literal"><span class="pre">UnicodeError</span></code>, print &#8220;unicode error happening now&#8221;. Make sure your code can handle both errors. (Note: since <code class="docutils literal"><span class="pre">some_function</span></code> isn&#8217;t filled out, neither exception will be raised when you run the program.)</p>
+
+<textarea data-component="activecode" id=exceptions_ex4 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def some_function():
+    # Imagine code that could raise value or unicode errors
+    pass
+
+def main():
+    # Put your exception handling code below
+    some_function()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer4 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def some_function():
+    # Imagine code that could raise value or unicode errors
+    pass
+
+def main():
+    try:
+        some_function()
+    except UnicodeError:
+        print("unicode error happening now")
+    except ValueError:
+        print("value error happening now")
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+</ol>
+<p>These next several problems are variations on a theme. Each will have you return a string that consists of a shape built out of <code class="docutils literal"><span class="pre">#</span></code> (hash) characters. It is left up to you to add the code you would need to run your functions (i.e., adding a <code class="docutils literal"><span class="pre">main</span></code> function and calling the respective function). These problems build in difficulty, and are examples in how solving smaller problems can lead you to incrementally build the solutions to larger problems.</p>
+<ol class="arabic" start="5">
+<li><div id='q5' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">line(n)</span></code> that returns a line with exactly <code class="docutils literal"><span class="pre">n</span></code> hashes.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">print(line(5))</span></code></p>
+</dd>
+<dt><strong>Output:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">#####</span></code></p>
+</dd>
+</dl>
+
+<textarea data-component="activecode" id=exceptions_ex5 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer5 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def line(n):
+    line_str = ''
+    for i in range(n):
+        line_str = line_str + '#'
+
+    return line_str
+
+def main():
+    print(line(5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q6' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">square(n)</span></code> that returns an <code class="docutils literal"><span class="pre">n</span></code> by <code class="docutils literal"><span class="pre">n</span></code> square of hashes. Utilize your <code class="docutils literal"><span class="pre">line</span></code> function.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">print(square(5))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span><span class="c1">#####</span>
+<span class="c1">#####</span>
+<span class="c1">#####</span>
+<span class="c1">#####</span>
+<span class="c1">#####</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex6 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer6 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def line(n):
+    line_str = ''
+    for i in range(n):
+        line_str = line_str + '#'
+
+    return line_str
+
+def square(n):
+    square_str = ''
+    for i in range(n):
+        square_str += (line(n) + '\n')
+    return square_str
+
+def main():
+    print(square(5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q7' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">rectangle(width,</span> <span class="pre">height)</span></code> that returns a rectangle of the width and height given by the parameters. Again, utilize your <code class="docutils literal"><span class="pre">line</span></code> function to do this.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">print(rectangle(5,</span> <span class="pre">3))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span><span class="c1">#####</span>
+<span class="c1">#####</span>
+<span class="c1">#####</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex7 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer7 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def line(n):
+    line_str = ''
+    for i in range(n):
+        line_str = line_str + '#'
+
+    return line_str
+
+def rectangle(width, height):
+    rectangle_str = ''
+    for i in range(height):
+        rectangle_str += (line(width) + '\n')
+
+    return rectangle_str
+
+def main():
+    print(rectangle(5, 3))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q8' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">stairs(n)</span></code> that prints the pattern shown below, with height <code class="docutils literal"><span class="pre">n</span></code>.  Again, utilize your <code class="docutils literal"><span class="pre">line</span></code> function to do this.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">stairs(5))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1">##</span>
+<span class="c1">###</span>
+<span class="c1">####</span>
+<span class="c1">#####</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex8 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer8 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def line(n):
+    line_str = ''
+    for i in range(n):
+        line_str = line_str + '#'
+
+    return line_str
+
+def stairs(n):
+    stair_str = ''
+    for level_len in range(n):
+        stair_str += (line(level_len+1) + '\n')
+
+    return stair_str
+
+def main():
+    print(stairs(5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q9' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">space_line(spaces,</span> <span class="pre">hashes)</span></code> that returns a line with exactly the specified number of spaces, followed by the specified number of hashes.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">print(space_line(3,5))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span><span class="c1">#This is where the edge is, so there&#39;s 3 spaces before hashes</span>
+   <span class="c1">#####</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex9 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer9 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def space_line(spaces, hashes):
+    return spaces * ' ' + hashes * '#'
+
+def main():
+    print(space_line(3, 5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q10' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">triangle(n)</span></code> that returns an upright triangle of height <code class="docutils literal"><span class="pre">n</span></code>.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">print(triangle(5))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span>    <span class="c1">#</span>
+   <span class="c1">###</span>
+  <span class="c1">#####</span>
+ <span class="c1">#######</span>
+<span class="c1">#########</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex10 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer10 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def space_line(spaces, hashes):
+    return spaces * ' ' + hashes * '#'
+
+def triangle(n):
+    triangle_str = ''
+    for i in range(n):
+        triangle_str += (space_line(n-i-1, 2*i+1) + '\n')
+    return triangle_str
+
+def main():
+    print(triangle(5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q11' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function <code class="docutils literal"><span class="pre">diamond(n)</span></code> that returns a diamond where the triangle formed by the top portion has height <code class="docutils literal"><span class="pre">n</span></code>. Notice that this means the diamond has <code class="docutils literal"><span class="pre">2n</span> <span class="pre">-</span> <span class="pre">1</span></code> rows.</p>
+<dl class="docutils">
+<dt><strong>Example:</strong></dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">diamond(5))</span></code></p>
+</dd>
+</dl>
+<p><strong>Output:</strong></p>
+<div class="highlight-Python"><div class="highlight"><pre><span></span>    <span class="c1">#</span>
+   <span class="c1">###</span>
+  <span class="c1">#####</span>
+ <span class="c1">#######</span>
+<span class="c1">#########</span>
+ <span class="c1">#######</span>
+  <span class="c1">#####</span>
+   <span class="c1">###</span>
+    <span class="c1">#</span>
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=exceptions_ex11 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=exceptions_answer11 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def space_line(spaces, hashes):
+    return spaces * ' ' + hashes * '#'
+
+def triangle(n):
+    triangle_str = ''
+    for i in range(n):
+        triangle_str += (space_line(n-i-1, 2*i+1) + '\n')
+    return triangle_str
+
+def diamond(n):
+    diamond_str = triangle(n)
+    for i in range(n-2, -1, -1):
+        diamond_str += (space_line(n-i-1, 2*i+1) + '\n')
+    return diamond_str
+
+def main():
+    print(diamond(5))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+</ol>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 6. Debugging Review' data-toggle="tooltip">
+    <a href="DebuggingReview.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="DebuggingReview.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - More About Iteration' data-toggle="tooltip" >
+    <a href="../ChapterHeadings/Heading8.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="../ChapterHeadings/Heading8.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

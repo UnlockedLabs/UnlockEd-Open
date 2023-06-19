@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>15. Exercises &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="Functions" href="../ChapterHeadings/Heading5.html" />
+    <link rel="prev" title="14. Glossary" href="Glossary.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="exercises">
+<h1>15. Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="full-width container">
+<ol class="arabic">
+<li><div id='q1' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a program that prints <code class="docutils literal"><span class="pre">We</span> <span class="pre">like</span> <span class="pre">Python's</span> <span class="pre">turtles!</span></code> 1000 times.</p>
+<p>Now, update that program to prompt the user for an integer and then print the same message the given number of times.</p>
+
+<textarea data-component="activecode" id=ex_3_1 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q1_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+num_messages = int(input("Number of messages to print"))
+
+for i in range(num_messages):
+    print("We like Python's turtles!")
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a program that prints out the lyrics to the song &#8220;99 Bottles of Beer on the Wall&#8221;</p>
+
+<textarea data-component="activecode" id=ex_3_2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><p class="first">Write a program that prints even integers from 0 to 50.</p>
+
+<textarea data-component="activecode" id=ex_3_evens data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q3' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<dl class="docutils">
+<dt>Write a program that uses a for loop to print</dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">January</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">February</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">One</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">months</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">year</span> <span class="pre">is</span> <span class="pre">March</span></code></div>
+<div class="line">etc ...</div>
+</div>
+</dd>
+</dl>
+
+<textarea data-component="activecode" id=ex_3_3 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q3_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+for month in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December']:
+    print("One of the months of the year is", month)
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q5' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Use <code class="docutils literal"><span class="pre">for</span></code> loops to make a turtle draw these regular polygons
+(regular means all sides the same lengths, all angles the same):</p>
+<ul class="simple">
+<li>An equilateral triangle</li>
+<li>A square</li>
+<li>A hexagon (six sides)</li>
+<li>An octagon (eight sides)</li>
+</ul>
+
+<textarea data-component="activecode" id=ex_3_5 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># draw an equilateral triangle</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">norvig</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">norvig</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="c1"># the angle of each vertice of a regular polygon</span>
+    <span class="c1"># is 360 divided by the number of sides</span>
+    <span class="n">norvig</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># draw a square</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">kurzweil</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">kurzweil</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">kurzweil</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># draw a hexagon</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">dijkstra</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">dijkstra</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">dijkstra</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># draw an octagon</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">knuth</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">knuth</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+    <span class="n">knuth</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a program that asks the user for the number of sides, the length of the side, the color, and the fill color of a
+regular polygon.</p>
+
+<textarea data-component="activecode" id=ex_3_6 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q7' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>A drunk pirate makes a random turn and then takes 100 steps forward, makes another random turn, takes another 100 steps, turns another random amount, etc. A social science student records the angle of each turn before the next 100 steps are taken. Her experimental data is <code class="docutils literal"><span class="pre">160,</span> <span class="pre">-43,</span> <span class="pre">270,</span> <span class="pre">-97,</span> <span class="pre">-43,</span> <span class="pre">200,</span> <span class="pre">-940,</span> <span class="pre">17,</span> <span class="pre">-86</span></code>. (Positive angles are counter-clockwise.)  Use a turtle to draw the path taken by our drunk friend.</p>
+
+<textarea data-component="activecode" id=ex_3_7 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q7_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+wn = turtle.Screen()
+lovelace = turtle.Turtle()
+
+# move the turtle forward a little so that the whole path fits on the screen
+lovelace.penup()
+lovelace.forward(60)
+
+# now draw the drunk pirate's path
+lovelace.pendown()
+for angle in [160, -43, 270, -97, -43, 200, -940, 17, -86]:
+
+    # we use .left() so that positive angles are counter-clockwise
+    # and negative angles are clockwise
+    lovelace.left(angle)
+    lovelace.forward(100)
+
+wn.exitonclick()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">On a piece of scratch paper, trace the the path of the turtle in the following program. When you are done, press <code class="docutils literal"><span class="pre">run</span></code>
+and check your answer.</p>
+
+<textarea data-component="activecode" id=ex_3_8 data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+wn = turtle.Screen()
+tess = turtle.Turtle()
+tess.speed(5)
+tess.right(90)
+tess.left(3600)
+tess.right(-90)
+tess.left(3600)
+tess.forward(-100)
+</textarea>
+</li>
+<li><div id='q9' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a program to draw a shape like this:</p>
+<img alt="../_images/star1.png" src="../_images/star1.png" />
+
+<textarea data-component="activecode" id=ex_3_9 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q9_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+turing = turtle.Turtle()
+
+for i in range(5):
+    turing.forward(110)
+    turing.left(216)
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a program to draw a face of a clock that looks something like this:</p>
+<img alt="../_images/tess_clock1.png" src="../_images/tess_clock1.png" />
+
+<textarea data-component="activecode" id=ex_3_10 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q11' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a program to draw some kind of picture. Be creative and experiment
+with the turtle methods provided in <a class="reference internal" href="SummaryofTurtleMethods.html#turtle-methods"><span class="std std-ref">Summary of Turtle Methods</span></a>.</p>
+
+<textarea data-component="activecode" id=ex_3_11 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q11_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+tanenbaum = turtle.Turtle()
+tanenbaum.hideturtle()
+tanenbaum.speed(20)
+
+for i in range(350):
+    tanenbaum.forward(i)
+    tanenbaum.right(98)
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Create a turtle and assign it to a variable. When you print its type, what do you get?</p>
+
+<textarea data-component="activecode" id=ex_3_12 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q13' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>A sprite is a simple spider shaped thing with n legs coming out from a center
+point. The angle between each leg is 360 / n degrees.</p>
+<p>Write a program to draw a sprite where the number of legs is provided by the user.</p>
+
+<textarea data-component="activecode" id=ex_3_13 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q13_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+wn = turtle.Screen()
+
+babbage = turtle.Turtle()
+babbage.shape("triangle")
+
+n = int(input("How many legs should this sprite have? "))
+angle = 360 / n
+
+for i in range(n):
+    # draw the leg
+    babbage.right(angle)
+    babbage.forward(65)
+    babbage.stamp()
+
+    # go back to the middle and turn back around
+    babbage.right(180)
+    babbage.forward(65)
+    babbage.right(180)
+
+babbage.shape("circle")
+
+wn.exitonclick()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q14' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Use a <code class="docutils literal"><span class="pre">for</span></code> statement to print 10 random numbers.</p>
+
+<textarea data-component="activecode" id=ex_3_14 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q14_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import random
+
+for i in range(10):
+    num = random.randrange(1, 200)
+    print(num)
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Repeat the above exercise but this time print 10 random numbers between 25 and 35.</p>
+
+<textarea data-component="activecode" id=ex_mod_2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q16' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>The <strong>Pythagorean Theorem</strong> tells us that the length of the hypotenuse of a right triangle is related to the lengths of the other two sides. Look through the <code class="docutils literal"><span class="pre">math</span></code> module and see if you can find a function that will compute this relationship for you. Once you find it, write a short program to try it out.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_3_16 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q16_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+import math
+
+side1 = 3
+side2 = 4
+hypotenuse = math.hypot(side1,side2)
+print(hypotenuse)
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Search on the internet for a way to calculate an approximation for <strong>pi</strong>.  There are many that use simple arithmetic. Write a program to compute the approximation and then print that value as well as the value of <code class="docutils literal"><span class="pre">math.pi</span></code> from the math module.</p>
+
+<textarea data-component="activecode" id=ex_mod_4 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+</ol>
+</div>
+<div class="section" id="weekly-graded-assignment">
+<h2>Weekly Graded Assignment<a class="headerlink" href="#weekly-graded-assignment" title="Permalink to this headline">¶</a></h2>
+<div class="full-width container">
+<p>Assume you have a list of numbers <code class="docutils literal"><span class="pre">nums</span> <span class="pre">=</span> <span class="pre">[12,</span> <span class="pre">10,</span> <span class="pre">32,</span> <span class="pre">3,</span> <span class="pre">66,</span> <span class="pre">17,</span> <span class="pre">42,</span> <span class="pre">99,</span> <span class="pre">20]</span></code></p>
+<ol class="loweralpha">
+<li><p class="first">Write a loop that prints each of the numbers on a new line, like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">12</span>
+<span class="mi">10</span>
+<span class="o">...</span><span class="n">etc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a second loop that prints each number and its square on a new line, precisely like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">square</span> <span class="n">of</span> <span class="mi">12</span> <span class="ow">is</span> <span class="mi">144</span>
+<span class="n">The</span> <span class="n">square</span> <span class="n">of</span> <span class="mi">10</span> <span class="ow">is</span> <span class="mi">100</span>
+<span class="o">...</span><span class="n">etc</span>
+</pre></div>
+</div>
+</li>
+</ol>
+
+<textarea data-component="activecode" id=ex_3_4 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+nums = [12, 10, 32, 3, 66, 17, 42, 99, 20]
+</textarea>
+</div>
+</div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 14. Glossary' data-toggle="tooltip">
+    <a href="Glossary.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="Glossary.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - Functions' data-toggle="tooltip" >
+    <a href="../ChapterHeadings/Heading5.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="../ChapterHeadings/Heading5.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>13. Exercises &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="Selection" href="../ChapterHeadings/Heading6.html" />
+    <link rel="prev" title="12. Glossary" href="Glossary.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="exercises">
+<h1>13. Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="full-width container">
+<ol class="arabic">
+<li><div id='q1' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Use the <code class="docutils literal"><span class="pre">draw_square</span></code> function we wrote in this chapter to draw the image shown below. Assume each side is 20 units.</p>
+<p>(Hint: notice that the turtle has already moved away from the ending point of the last square when the program ends.)</p>
+<img alt="../_images/five_squares.png" src="../_images/five_squares.png" />
+
+<textarea data-component="activecode" id=ex_5_1 data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+def draw_square(t, sz):
+    """Get turtle t to draw a square with sz side"""
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+def main():
+    wn = turtle.Screen()
+    wn.bgcolor("lightgreen")
+
+    alex = turtle.Turtle()
+    alex.color("pink")
+
+    draw_square(alex,20)
+
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q1_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+def draw_square(t, sz):
+    """Make turtle t draw a square with side sz."""
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+def main():
+    wn = turtle.Screen()       # Set up the window and its attributes
+    wn.bgcolor("lightgreen")
+
+    alex = turtle.Turtle()     # create alex
+    alex.color('hotpink')
+    alex.pensize(3)
+
+    for i in range(5):
+        draw_square(alex, 20)   # Call the function to draw the square
+        alex.penup()
+        alex.forward(40)       # move alex to the starting position for the next square
+        alex.pendown()
+
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a program to draw this. Assume the innermost square is 20 units per side and each successive square is 20 units bigger, per side, than the one inside it.</p>
+<img alt="../_images/nested_squares.png" src="../_images/nested_squares.png" />
+
+<textarea data-component="activecode" id=ex_5_2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q3' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a non-fruitful function <code class="docutils literal"><span class="pre">draw_poly(t,</span> <span class="pre">sides,</span> <span class="pre">side_length)</span></code> which makes a turtle draw a regular polygon. When called with <code class="docutils literal"><span class="pre">draw_poly(tess,</span> <span class="pre">8,</span> <span class="pre">50)</span></code>, it will draw a shape like this:</p>
+<img alt="../_images/regularpolygon.png" src="../_images/regularpolygon.png" />
+
+<textarea data-component="activecode" id=ex_5_3 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q3_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+import turtle
+
+def draw_poly(t, sides, side_length):
+    for i in range(sides):
+        t.forward(side_length)
+        t.left(360/sides)
+
+def main():
+    wn = turtle.Screen()       # Set up the window and its attributes
+    wn.bgcolor("lightgreen")
+
+    tess = turtle.Turtle()
+    tess.color('hotpink')
+    tess.pensize(3)
+
+    draw_poly(tess, 8, 50)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q5' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>The two spirals in this picture differ only by the turn angle. Draw both.</p>
+<p><em>Note:</em> Because this program might receive a <code class="docutils literal"><span class="pre">TimeLimitError</span></code> we&#8217;ve added some code to our answer to make the turtle go faster (use its <code class="docutils literal"><span class="pre">speed</span></code> method) and to increase the time the program is allowed to run to 35 seconds. You can do the latter in your code using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setExecutionLimit</span><span class="p">(</span><span class="mi">35000</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/tess_spirals.png"><img alt="../_images/tess_spirals.png" src="../_images/tess_spirals.png" style="height: 240px;" /></a>
+
+<textarea data-component="activecode" id=ex_5_5 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q5_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+import sys
+
+sys.setExecutionLimit(35000)
+
+def draw_spiral(t, angle):
+    ''' takes a turtle, t, and an angle in degrees '''
+    length = 1
+    for i in range(84):
+        t.forward(length)
+        t.right(angle)
+        length = length + 2
+
+def main():
+    wn = turtle.Screen()       # Set up the window and its attributes
+    wn.bgcolor("lightgreen")
+
+    guido = turtle.Turtle()    # create guido
+    guido.color('blue')
+    guido.speed(10)
+
+    ## draw the first spiral ##
+    # position guido
+    guido.penup()
+    guido.backward(110)
+    guido.pendown()
+
+    # draw the spiral using a 90 degree turn angle
+    draw_spiral(guido, 90)
+
+    ## draw the second spiral ##
+    # position guido
+    guido.penup()
+    guido.home()
+    guido.forward(90)
+    guido.pendown()
+
+    draw_spiral(guido, 89)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a non-fruitful function <code class="docutils literal"><span class="pre">draw_equi_triangle(turtle,</span> <span class="pre">size)</span></code> which calls <code class="docutils literal"><span class="pre">draw_poly</span></code> from the question above to have its turtle draw an equilateral triangle.</p>
+
+<textarea data-component="activecode" id=ex_5_6 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q7' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a fruitful function <code class="docutils literal"><span class="pre">sum_to(n)</span></code> that returns the sum of all integer numbers up to and including <code class="docutils literal"><span class="pre">n</span></code>.  So <code class="docutils literal"><span class="pre">sum_to(10)</span></code> would be <code class="docutils literal"><span class="pre">1+2+3...+10</span></code> which would return the value 55. Use the equation  (n * (n + 1)) / 2.</p>
+
+<textarea data-component="activecode" id=ex_5_7 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def sum_to(n):
+    # your code here
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q7_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def sum_to(n):
+    result = (n * (n + 1)) / 2
+    return result
+
+def main():
+    # Now lets see how well this works
+    t = sum_to(0)
+    print("The sum from 1 to 0 is",t)
+    t = sum_to(10)
+    print("The sum from 1 to 10 is",t)
+    t = sum_to(5)
+    print("The sum from 1 to 5 is",t)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q9' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a non-fruitful function to draw a five pointed star, where the length of each side is 100 units.</p>
+<img alt="../_images/star.png" src="../_images/star.png" />
+
+<textarea data-component="activecode" id=ex_5_9 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q9_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+def draw_star(t):
+    for i in range(5):
+        t.forward(100)
+        t.left(216)
+
+def main():
+    wolfram = turtle.Turtle()
+    draw_star(wolfram)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Extend your program above. Draw five stars, but between each, pick up the pen, move forward by 350 units, turn right by 144, put the pen down, and draw the next star. You&#8217;ll get something like this (note that you will need to move to the left before drawing your first star in order to fit everything in the window):</p>
+<img alt="../_images/five_stars.png" src="../_images/five_stars.png" />
+<p>What would it look like if you didn&#8217;t pick up the pen?</p>
+
+<textarea data-component="activecode" id=ex_5_10 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q11' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Extend the star function to draw an <code class="docutils literal"><span class="pre">n</span></code> pointed star.  (Hint: <code class="docutils literal"><span class="pre">n</span></code> must be an odd number greater or equal to 3).</p>
+
+<textarea data-component="activecode" id=ex_5_11 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q11_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+def draw_star(t, n):
+    for i in range(n):
+        t.forward(100)
+        t.left(180 - 180/n)
+
+def main():
+    sam = turtle.Turtle()
+    draw_star(sam, 7)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a function called <code class="docutils literal"><span class="pre">draw_sprite</span></code> that will draw a sprite. The function will need parameters for the turtle, the number of legs, and the length of the legs. Invoke the function to create a sprite  with 15 legs of length 120.</p>
+
+<textarea data-component="activecode" id=ex_5_12 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q13' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Rewrite the function <code class="docutils literal"><span class="pre">sum_to(n)</span></code> that returns the sum of all integer numbers up to and including <code class="docutils literal"><span class="pre">n</span></code>.   This time use the accumulator pattern.</p>
+
+<textarea data-component="activecode" id=ex_5_13 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def sum_to(n):
+    # your code here
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q13_answer data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def sum_to(n):
+    sum = 0
+    for i in range(1,n+1):
+        sum = sum + i
+    return sum
+
+def main():
+    # Now lets see how well this works
+    t = sum_to(0)
+    print("The sum from 1 to 0 is",t)
+    t = sum_to(10)
+    print("The sum from 1 to 10 is",t)
+    t = sum_to(5)
+    print("The sum from 1 to 5 is",t)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q14' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function called <code class="docutils literal"><span class="pre">fancy_square</span></code> that will draw a square with fancy corners (sprites on the corners).  You should implement and use the <code class="docutils literal"><span class="pre">draw_sprite</span></code> function from above.</p>
+
+<textarea data-component="activecode" id=ex_5_14 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q14_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import turtle
+
+def draw_sprite(t, legs, leg_length):
+    angle = 360/legs
+    for i in range(legs):
+        t.forward(leg_length)
+        t.backward(leg_length)
+        t.left(angle)
+
+def fancy_square(t, sz, lgs, lgl):
+    for i in range(4):
+        t.forward(sz)
+        draw_sprite(t, lgs, lgl)
+        t.left(90)
+
+def main():
+    wn = turtle.Screen()
+    wn.bgcolor("lightgreen")
+
+    alex = turtle.Turtle()
+    fancy_square(alex, 100, 10, 15)
+
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+</ol>
+</div>
+<div class="section" id="weekly-graded-assignment">
+<h2>Weekly Graded Assignment<a class="headerlink" href="#weekly-graded-assignment" title="Permalink to this headline">¶</a></h2>
+<div class="full-width container">
+<p>Write a function <code class="docutils literal"><span class="pre">area_of_circle(r)</span></code> which returns the area of a circle of radius <code class="docutils literal"><span class="pre">r</span></code></p>
+<p>As a refresher, the area of any circle is equal to the radius squared, multiplied by pi (where pi is 3.14159....).</p>
+<p>Don&#8217;t forget to include the <code class="docutils literal"><span class="pre">math</span></code> module, where pi is defined.</p>
+
+<textarea data-component="activecode" id=ex_5_8 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+# TODO: use def to define a function called area_of_circle which takes an argument called r
+
+    # TODO implement your function to return the area of a circle whose radius is r
+
+
+# Below are some tests which can give you an indication that your code seems to be correct.
+
+# IMPORTANT: You should NOT include this part when you submit in Vocareum.
+# When you submit, only include the function above.
+from test import testEqual
+
+t = area_of_circle(0)
+testEqual(t, 0)
+t = area_of_circle(1)
+testEqual(t,math.pi)
+t = area_of_circle(100)
+testEqual(t, 31415.926535897932)
+t = area_of_circle(-1)
+testEqual(t, math.pi)
+t = area_of_circle(-5)
+testEqual(t, 25 * math.pi)
+t = area_of_circle(2.3)
+testEqual(t, 16.61902513749)
+</textarea>
+</div>
+</div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 12. Glossary' data-toggle="tooltip">
+    <a href="Glossary.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="Glossary.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - Selection' data-toggle="tooltip" >
+    <a href="../ChapterHeadings/Heading6.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="../ChapterHeadings/Heading6.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

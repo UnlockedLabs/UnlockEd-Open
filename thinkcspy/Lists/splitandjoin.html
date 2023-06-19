@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>12. split and join &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="13. Glossary" href="Glossary.html" />
+    <link rel="prev" title="11. List Comprehensions" href="ListComprehensions.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="split-and-join">
+<span id="index-0"></span><h1>12. split and join<a class="headerlink" href="#split-and-join" title="Permalink to this headline">¶</a></h1>
+<p>Two of the most useful methods involving lists and strings are the complimentary methods <code class="docutils literal"><span class="pre">split</span></code> and <code class="docutils literal"><span class="pre">join</span></code>. The <code class="docutils literal"><span class="pre">split</span></code> method is used on a string and breaks the string into a list of words. By default, any number of whitespace characters is considered a word boundary.</p>
+
+<textarea data-component="activecode" id=ch09_split1 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+song = "The rain in Spain..."
+words = song.split()
+print(words)
+</textarea>
+<p>An optional argument called a <strong>delimiter</strong> can be used to specify which characters to use as word boundaries. The following example uses the string <code class="docutils literal"><span class="pre">ai</span></code> as the delimiter:</p>
+
+<textarea data-component="activecode" id=ch09_split2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+song = "The rain in Spain..."
+words = song.split('ai')
+print(words)
+</textarea>
+<p>Notice that the delimiter doesn&#8217;t appear in the result.</p>
+<p>The inverse of the <code class="docutils literal"><span class="pre">split</span></code> method is <code class="docutils literal"><span class="pre">join</span></code>, which is used on a list. You choose a desired <strong>separator</strong> string, (often called the <em>glue</em>) and join the list with the glue between each of the elements to form a new string.</p>
+
+<textarea data-component="activecode" id=ch09_join data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+words = ["red", "blue", "green"]
+glue = ';'
+s = glue.join(words)
+print(s)
+print(words)
+
+print("***".join(words))
+print("".join(words))
+</textarea>
+<p>The list whose elements you glued together (<code class="docutils literal"><span class="pre">words</span></code> in this example) is not itself modified. Also, you can use empty glue or multi-character strings as glue.</p>
+<div class="section" id="list-type-conversion-function">
+<h2>List Type Conversion Function<a class="headerlink" href="#list-type-conversion-function" title="Permalink to this headline">¶</a></h2>
+<p>Python has a built-in type conversion function called <code class="docutils literal"><span class="pre">list</span></code> that tries to turn whatever you give it into a list. For example, try the following:</p>
+
+<textarea data-component="activecode" id=ch09_list1 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+xs = list("Crunchy Frog")
+print(xs)
+</textarea>
+<p>The string <code class="docutils literal"><span class="pre">&quot;Crunchy</span> <span class="pre">Frog&quot;</span></code> is turned into a list by taking <em>each character</em> in the string and placing it in a list. In general, any sequence can be turned into a list using this function. The result will be a list containing the elements in the original sequence. It is not legal to use the <code class="docutils literal"><span class="pre">list</span></code> conversion function on any argument that is not a sequence.</p>
+<p>It is also important to point out that the <code class="docutils literal"><span class="pre">list</span></code> conversion function will place each element of the original sequence in the new list. When working with strings, this is very different than the result of the <code class="docutils literal"><span class="pre">split</span></code> method. Whereas <code class="docutils literal"><span class="pre">split</span></code> will break a string into <em>a list of words</em>, <code class="docutils literal"><span class="pre">list</span></code> will always break it into <em>a list of characters</em>.</p>
+<p><strong>Check your understanding</strong></p>
+
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="test_question9_22_1">
+            <p>What is printed by the following statements?</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;Edgar Allan Poe&quot;</span>
+<span class="n">name_list</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">init</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">name_list</span><span class="p">:</span>
+    <span class="n">init</span> <span class="o">=</span> <span class="n">init</span> <span class="o">+</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+</pre></div>
+</div>
+
+            <li data-component="answer"  id="test_question9_22_1_opt_a">Poe</li><li data-component="feedback" id="test_question9_22_1_opt_a">Three characters but not the right ones. name_list is the list of names.</li>
+            
+            <li data-component="answer"  id="test_question9_22_1_opt_b">EdgarAllanPoe</li><li data-component="feedback" id="test_question9_22_1_opt_b">Too many characters in this case. There should be a single letter from each name.</li>
+            
+            <li data-component="answer" data-correct id="test_question9_22_1_opt_c">EAP</li><li data-component="feedback" id="test_question9_22_1_opt_c">Yes, split creates a list of the three names. The for loop iterates through the names and creates a string from the first characters.</li>
+            
+            <li data-component="answer"  id="test_question9_22_1_opt_d">William Shakespeare</li><li data-component="feedback" id="test_question9_22_1_opt_d">That does not make any sense.</li>
+            
+
+            </ul>
+            </div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 11. List Comprehensions' data-toggle="tooltip">
+    <a href="ListComprehensions.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="ListComprehensions.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - 13. Glossary' data-toggle="tooltip" >
+    <a href="Glossary.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="Glossary.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

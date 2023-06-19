@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * Perform db read and update operations on site settings
+ *
+ * PHP version 7.2.5
+ *
+ * @category  Main_App
+ * @package   UnlockED
+ * @author    UnlockedLabs <developers@unlockedlabs.org>
+ * @copyright 2021 UnlockedLabs.org <http://unlockedlabs.org/>
+ * @license   https://www.gnu.org/licenses/gpl.html GPLv3
+ * @link      http://unlockedlabs.org
+ */
+
+/**
+ * @file site_settings.php
+ * @brief the SiteSettings object is defined in this file
+ * 
+ * This SiteSettings class defined in this file represents all SiteSettings
+ * objects throughout the application.
+ */
+
+namespace unlockedlabs\unlocked;
+
+require_once 'GUID.php';
+
+/**
+  * @brief   SiteSettings Class
+  * @details This class provides a SiteSettings definition for the application
+  */
+class SiteSettings
+{
+
+    // database connection and table name
+    private $conn;
+    private $table_name = "site_settings";
+
+    // object properties
+    public $id;                   ///< guid, primary key
+    public $setting;              ///< the setting's name
+    public $value;                ///< the setting's value
+    public $read_only;            ///< boolean indicating if setting is read only
+    public $created;              ///< timestamp of record creation
+
+    /**
+     * Constructor
+     *
+     * @param object $db -  database connection to database
+     */
+    public function __construct($db)
+    {
+        $this->conn = $db;
+    }
+    
+    /**
+     * Update a site setting
+     * @return bool true if update successful, otherwise false
+     *
+     */
+    public function update()
+    {
+
+        $query = "UPDATE " . $this->table_name . "
+        SET value=:value
+        WHERE setting=:setting";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind params
+        $stmt->bindParam(':setting', $this->setting);
+        $stmt->bindParam(':value', $this->value);
+
+        if ($stmt->execute() && $stmt->rowCount()) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    /**
+     * read site settings
+     * @return PDOStatement
+     */
+    public function read()
+    {
+
+        $query = "SELECT * FROM  $this->table_name";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+      
+}
+?>
+

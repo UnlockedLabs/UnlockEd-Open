@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Looping and Counting &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="8. Character Classification" href="Characterclassification.html" />
+    <link rel="prev" title="6. String Traversal" href="StringTraversal.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="looping-and-counting">
+<span id="index-0"></span><h1>7. Looping and Counting<a class="headerlink" href="#looping-and-counting" title="Permalink to this headline">¶</a></h1>
+<p>If you want to find out if a particular character is in a string, you could iterate through the string and compare each character to the desired character and then return a boolean value indicating if it was found or not.</p>
+
+<textarea data-component="activecode" id=loop_char data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def find_char(text):
+    char_exists = False
+
+    for char in "Go Spot Go":
+        if char == text:
+            char_exists = True
+
+    return char_exists
+
+print(find_char("S"))
+print(find_char("f"))
+</textarea>
+<p>But you could also just use the convenient <code class="docutils literal"><span class="pre">in</span></code> operator (or its opposite, <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code>) and it will return the same information. The <code class="docutils literal"><span class="pre">in</span></code> operator tests if one string is a substring of another:</p>
+
+<textarea data-component="activecode" id=chp8_in1 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+print('p' in 'apple')
+print('i' in 'apple')
+print('ap' in 'apple')
+print('pa' in 'apple')
+</textarea>
+<p>Note that a string is a substring of itself, and the empty string is a substring of any other string. (Also note that computer scientists like to think about these edge cases quite carefully!)</p>
+
+<textarea data-component="activecode" id=chp8_in2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+print('a' in 'a')
+print('apple' in 'apple')
+print('' in 'a')
+print('' in 'apple')
+</textarea>
+<p>The <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code> operator returns the logical opposite result of <code class="docutils literal"><span class="pre">in</span></code>.</p>
+
+<textarea data-component="activecode" id=chp8_in3 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+print('x' not in 'apple')
+print('a' not in 'apple')
+</textarea>
+<div class="section" id="the-accumulator-pattern-with-strings">
+<h2>The Accumulator Pattern with Strings<a class="headerlink" href="#the-accumulator-pattern-with-strings" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s work through a more complex string looping example. Combining the <code class="docutils literal"><span class="pre">in</span></code> operator with string concatenation using <code class="docutils literal"><span class="pre">+</span></code> and the accumulator pattern, we can write a function that removes all the vowels from a string and returns a new string consisting of only the non-vowel characters.</p>
+<p>The idea is to start with a string and iterate over each character, checking to see if the character is a vowel. As we process the characters, we will build up a new string consisting of only the non-vowel characters. To do this, we use the accumulator pattern which allows us to keep a &#8220;running total&#8221;. But in this case we are not accumulating a numeric total. Instead we are accumulating the non-vowel characters onto a string.</p>
+
+<textarea data-component="activecode" id=ch08_acc1 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def remove_vowels(s):
+    vowels = "aeiouAEIOU"
+    no_vowels = ""
+    for each_char in s:
+        if each_char not in vowels:
+            no_vowels = no_vowels + each_char
+    return no_vowels
+
+def main():
+    print(remove_vowels("compsci"))
+    print(remove_vowels("aAbEefIijOopUus"))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+<p>Line 5 uses the <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code> operator to check whether the current character is not in the string <code class="docutils literal"><span class="pre">vowels</span></code>. Look carefully at line 6 in the above program (<code class="docutils literal"><span class="pre">no_vowels</span> <span class="pre">=</span> <span class="pre">no_vowels</span> <span class="pre">+</span> <span class="pre">each_char</span></code>). We will do this for every character that is not a vowel. This should look very familiar. As we were describing earlier, it is an example of the accumulator pattern, this time using a string to &#8220;accumulate&#8221; the final result. In other words it says that the new value of <code class="docutils literal"><span class="pre">no_vowels</span></code> will be the old value of <code class="docutils literal"><span class="pre">no_vowels</span></code> <em>concatenated</em> with the value of <code class="docutils literal"><span class="pre">each_char</span></code>. Thus, we are building the result string character by character.</p>
+<p>Take a close look also at the initialization of <code class="docutils literal"><span class="pre">no_vowels</span></code>.  We start with an empty string and then begin adding new characters to the end. Otherwise we would get an error at line 6 if we tried to use the variable before initializing it.</p>
+<p>Step through the function using codelens to see the accumulator variable grow.</p>
+
+<div class="alert alert-warning cd_section">
+<div id="ch08_acc2"></div>
+<p class="cl_caption"><span class="cl_caption_text"> (ch08_acc2)</span> </p>
+</div>
+<script type="text/javascript">
+var ch08_acc2_trace = {"code": "def remove_vowels(s):\n    vowels = \"aeiouAEIOU\"\n    no_vowels = \"\"\n    for each_char in s:\n        if each_char not in vowels:\n            no_vowels = no_vowels + each_char\n    return no_vowels\n\ndef main():\n    print(remove_vowels(\"compsci\"))\n\nif __name__ == \"__main__\":\n    main()", "trace": [{"ordered_globals": [], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {}, "heap": {}, "line": 1, "event": "step_line"}, {"ordered_globals": ["remove_vowels"], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {"remove_vowels": ["REF", 1]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null]}, "line": 9, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 12, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 13, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "main", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": true, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 9, "event": "call"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "main", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": true, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 10, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 1, "event": "call"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 2, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "vowels": "aeiouAEIOU"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 3, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "", "vowels": "aeiouAEIOU"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 6, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "c", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "c", "vowels": "aeiouAEIOU", "each_char": "o"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "c", "vowels": "aeiouAEIOU", "each_char": "o"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "c", "vowels": "aeiouAEIOU", "each_char": "m"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "c", "vowels": "aeiouAEIOU", "each_char": "m"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 6, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cm", "vowels": "aeiouAEIOU", "each_char": "m"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cm", "vowels": "aeiouAEIOU", "each_char": "p"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cm", "vowels": "aeiouAEIOU", "each_char": "p"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 6, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmp", "vowels": "aeiouAEIOU", "each_char": "p"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmp", "vowels": "aeiouAEIOU", "each_char": "s"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmp", "vowels": "aeiouAEIOU", "each_char": "s"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 6, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmps", "vowels": "aeiouAEIOU", "each_char": "s"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmps", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmps", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 6, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmpsc", "vowels": "aeiouAEIOU", "each_char": "c"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmpsc", "vowels": "aeiouAEIOU", "each_char": "i"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 5, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmpsc", "vowels": "aeiouAEIOU", "each_char": "i"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 4, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"s": "compsci", "no_vowels": "cmpsc", "vowels": "aeiouAEIOU", "each_char": "i"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 7, "event": "step_line"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "", "func_name": "remove_vowels", "stack_to_render": [{"frame_id": 1, "encoded_locals": {}, "is_highlighted": false, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": []}, {"frame_id": 2, "encoded_locals": {"__return__": "cmpsc", "s": "compsci", "no_vowels": "cmpsc", "vowels": "aeiouAEIOU", "each_char": "i"}, "is_highlighted": true, "is_parent": false, "func_name": "remove_vowels", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "remove_vowels_f2", "ordered_varnames": ["s", "vowels", "no_vowels", "each_char", "__return__"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 7, "event": "return"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "cmpsc\n", "func_name": "main", "stack_to_render": [{"frame_id": 1, "encoded_locals": {"__return__": null}, "is_highlighted": true, "is_parent": false, "func_name": "main", "is_zombie": false, "parent_frame_id_list": [], "unique_hash": "main_f1", "ordered_varnames": ["__return__"]}], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 10, "event": "return"}, {"ordered_globals": ["remove_vowels", "main"], "stdout": "cmpsc\n", "func_name": "<module>", "stack_to_render": [], "globals": {"remove_vowels": ["REF", 1], "main": ["REF", 2]}, "heap": {"1": ["FUNCTION", "remove_vowels(s)", null], "2": ["FUNCTION", "main()", null]}, "line": 13, "event": "return"}]};
+var ch08_acc2_vis;
+
+$(document).ready(function() {
+    try {
+        ch08_acc2_vis = new ExecutionVisualizer('ch08_acc2',ch08_acc2_trace,
+                                    {embeddedMode: true,
+                                    verticalStack: false,
+                                    heightChangeCallback: redrawAllVisualizerArrows,
+                                    // LC MOD
+                                    // increase codelense width to 600
+                                    codeDivWidth: 600,
+                                    lang : 'py3'
+                                    });
+        attachLoggers(ch08_acc2_vis,'ch08_acc2');
+        styleButtons('ch08_acc2');
+        allVisualizers.push(ch08_acc2_vis);
+    } catch (e) {
+        console.log("Failed to Initialize CodeLens component ch08_acc2_vis" );
+        console.log(e.toString());
+    }
+
+});
+
+$(document).ready(function() {
+    $("#ch08_acc2_tracecheck").click(function() {
+        logBookEvent({'event':'codelens', 'act': 'check', 'div_id':'ch08_acc2'});
+    });
+});
+
+if (allVisualizers === undefined) {
+   var allVisualizers = [];
+}
+
+
+$(window).resize(function() {
+    if (ch08_acc2_vis) {
+        ch08_acc2_vis.redrawConnectors();
+    }
+});
+</script>
+<p>Let&#8217;s look at another example of the accumulator pattern, but this one does calculate a numeric value. The following program counts the number of times a particular letter, <code class="docutils literal"><span class="pre">char</span></code>, appears in a string.</p>
+
+<textarea data-component="activecode" id=chp08_fun2 data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def count(text, char):
+    letter_count = 0
+    for c in text:
+        if c == char:
+            letter_count = letter_count + 1
+    return letter_count
+
+def main():
+    print(count("banana","a"))
+
+if __name__ == "__main__":
+    main()
+</textarea>
+<p>The function <code class="docutils literal"><span class="pre">count</span></code> takes a string as its parameter. The <code class="docutils literal"><span class="pre">for</span></code> statement iterates through each character in the string and checks to see if the character is equal to the value of <code class="docutils literal"><span class="pre">char</span></code>. If so, the counting variable, <code class="docutils literal"><span class="pre">letter_count</span></code>, is incremented by one. When all characters have been processed, the <code class="docutils literal"><span class="pre">letter_count</span></code> is returned. (Note that <code class="docutils literal"><span class="pre">str</span></code> does have a <code class="docutils literal"><span class="pre">count</span></code> method that you can use to perform the same task.)</p>
+<p><strong>Check your understanding</strong></p>
+
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="test_question8_11_1">
+            <p>What is printed by the following statements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;ball&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">r</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+
+            <li data-component="answer"  id="test_question8_11_1_opt_a">Ball</li><li data-component="feedback" id="test_question8_11_1_opt_a">Each item is converted to upper case before concatenation.</li>
+            
+            <li data-component="answer"  id="test_question8_11_1_opt_b">BALL</li><li data-component="feedback" id="test_question8_11_1_opt_b">Each character is converted to upper case but the order is wrong.</li>
+            
+            <li data-component="answer" data-correct id="test_question8_11_1_opt_c">LLAB</li><li data-component="feedback" id="test_question8_11_1_opt_c">Yes, the order is reversed due to the order of the concatenation.</li>
+            
+
+            </ul>
+            </div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 6. String Traversal' data-toggle="tooltip">
+    <a href="StringTraversal.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="StringTraversal.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - 8. Character Classification' data-toggle="tooltip" >
+    <a href="Characterclassification.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="Characterclassification.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

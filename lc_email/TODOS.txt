@@ -1,0 +1,24 @@
+TODO: Add nlp or word list to check messages and subjects.
+
+TODO: Eventually move to json and ajax.
+
+TODO: Probably need to have two tables: sent_emails and recieved_emails.
+
+TODO: The colors for the first initial are hard coded. It would be better to us js to randomly set these.
+
+TODO: Remove storing of colors in the db.
+
+TODO: look into the following errors:
+
+TypeError: a is undefined[Learn More]
+Loading failed for the <script> with source “http://cdn.jsdelivr.net/ace/1.1.4/noconflict/ace.js”.
+Loading failed for the <script> with source “http://cdn.jsdelivr.net/ace/1.1.4/noconflict/ext-whitespace.js”.
+
+TODO: need to limit the ckeditor buttons we show.
+
+TODO: students can only email students.
+
+TODO: teachers can mail anyone.
+
+TODO: the inbox count does not adjust immediate when we move an email from trash to inbox.
+	A little bit of jquery could fix this.

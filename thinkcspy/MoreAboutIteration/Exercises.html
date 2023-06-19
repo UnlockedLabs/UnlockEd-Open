@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>10. Exercises &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="Strings" href="../ChapterHeadings/Heading9.html" />
+    <link rel="prev" title="9. Glossary" href="Glossary.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="exercises">
+<h1>10. Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="full-width container">
+<ol class="arabic">
+<li><p class="first">Write a function <code class="docutils literal"><span class="pre">print_triangular_numbers(n)</span></code> that prints out the first <code class="docutils literal"><span class="pre">n</span></code> triangular numbers. A call to <code class="docutils literal"><span class="pre">print_triangular_numbers(5)</span></code> would produce the following output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">6</span>
+<span class="mi">10</span>
+<span class="mi">15</span>
+</pre></div>
+</div>
+<p>(<em>Hint: use a web search to find out what a triangular number is.</em>)</p>
+
+<textarea data-component="activecode" id=ex_iter_triangle data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</li>
+<li><p class="first">Modify the walking turtle program so that rather than a 90 degree left or right turn the angle of the turn is determined randomly at each step.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_turtle_modify_walk data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</li>
+<li><div id='q3' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Modify the turtle walk program so that you have two turtles each with a random starting location. Keep the turtles moving until one of them leaves the screen.</p>
+
+<textarea data-component="activecode" id=ex_turtle_two_walk data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q3_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import random
+import turtle
+
+def move_random(wn, t):
+    coin = random.randrange(0,2)
+    if coin == 0:
+        t.left(90)
+    else:
+        t.right(90)
+
+    t.forward(50)
+
+def are_colliding(t1, t2):
+    if t1.distance(t2) < 2:
+        return True
+    else:
+        return False
+
+def is_in_screen(w, t):
+    left_bound = - w.window_width() / 2
+    right_bound = w.window_width() / 2
+    top_bound = w.window_height() / 2
+    bottom_bound = -w.window_height() / 2
+
+    turtle_x = t.xcor()
+    turtle_y = t.ycor()
+
+    still_in = True
+    if turtle_x > right_bound or turtle_x < left_bound:
+        still_in = False
+    if turtle_y > top_bound or turtle_y < bottom_bound:
+        still_in = False
+    return still_in
+
+def main():
+    t1 = turtle.Turtle()
+    t2 = turtle.Turtle()
+    wn = turtle.Screen()
+
+    t1.shape('turtle')
+    t2.shape('circle')
+
+    left_bound = -wn.window_width() / 2
+    right_bound = wn.window_width() / 2
+    top_bound = wn.window_height() / 2
+    bottom_bound = -wn.window_height() / 2
+
+    t1.up()
+    t1.goto(random.randrange(left_bound, right_bound),
+            random.randrange(bottom_bound, top_bound))
+    t1.setheading(random.randrange(0, 360))
+    t1.down()
+
+    t2.up()
+    t2.goto(random.randrange(left_bound, right_bound),
+            random.randrange(bottom_bound, top_bound))
+    t2.setheading(random.randrange(0, 360))
+    t2.down()
+
+    while is_in_screen(wn, t1) and is_in_screen(wn, t2):
+        move_random(wn, t1)
+        move_random(wn, t2)
+
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Modify the previous turtle walk program so that the turtle turns around when it hits the wall or when one turtle collides with another turtle.</p>
+
+<textarea data-component="activecode" id=ex_turtle_walk_turn data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</li>
+<li><div id='q5' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Here&#8217;s the start of a program for a weight training app that coaches users on how much weight they should lift for each of these three lifts: squat, bench, and deadlift. The program begins by having the user lift only 10 pounds for each lift. Each time they complete a set for a particular lift and say they are ready for the next set, add 10 pounds to the weight of their previous set and print a message that this is the new weight they should lift. The sets are all done for one lift at a time. So, for example, a user might squat 10 pounds, then 20 pounds, then 30 pounds and then say they don&#8217;t want to keep doing that lift. In this case, they&#8217;ll now get a printed message to bench 10 pounds, and so on and so forth.</p>
+<p>Some of the code is already included below, but you will need to fill in the rest of the <code class="docutils literal"><span class="pre">main</span></code> function to produce the following functionality:</p>
+<ul>
+<li><p class="first">For each lift, beginning with the squat, the function <code class="docutils literal"><span class="pre">workout_coach</span></code> should be called with the name of the lift and the current weight. This function prints a message to the user like the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Time to squat 10 pounds! You got this!
+</pre></div>
+</div>
+</li>
+<li><p class="first">Keep calling <code class="docutils literal"><span class="pre">workout_coach</span></code> for <em>as long as</em> the user answers &#8220;yes&#8221; to the following question: &#8220;Keep doing the squat? Enter yes for the next set.&#8221; (Note that you will need to fill in the name of the lift depending on which lift in the iteration they are on.) You can do something like the following to combine strings and a variable to create the prompt string:</p>
+</li>
+</ul>
+<div class="highlight-Python"><div class="highlight"><pre><span></span><span class="n">input_prompt</span> <span class="o">=</span> <span class="s2">&quot;Keep doing the &quot;</span> <span class="o">+</span> <span class="n">lift</span> <span class="o">+</span> <span class="s2">&quot;? Enter yes for the next set.&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>If the user answers with anything besides &#8220;yes&#8221; to the above question, then <em>stop</em> calling <code class="docutils literal"><span class="pre">workout_coach</span></code> for that particular lift and move on to repeat the above process for the next lift (unless it is the deadlift, which is the last lift and thus once the user decides to stop at this point the program quits).</li>
+<li>There is one special case where you should <em>stop</em> calling <code class="docutils literal"><span class="pre">workout_coach</span></code> &#8212; no matter what the user responds &#8212; and that is when the current weight is greater than 200 pounds for the bench. You have not yet talked with a lawyer about your app and you don&#8217;t want to get sued if anyone has a mishap, so you&#8217;re not going to encourage them to lift more than that amount of weight on the bench press (which is the exercise that, done improperly and without a spotter, causes most gym accidents). It is okay to keep encouraging users to lift more than 200 pounds for the squat and the deadlift, though, so you don&#8217;t need to set an upper limit for those lifts.</li>
+</ul>
+<p>Here is some example output from a program run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Time to squat 10 pounds! You got this!
+Time to squat 20 pounds! You got this!
+Time to bench 10 pounds! You got this!
+Time to bench 20 pounds! You got this!
+Time to bench 30 pounds! You got this!
+Time to deadlift 10 pounds! You got this!
+Time to deadlift 20 pounds! You got this!
+Time to deadlift 30 pounds! You got this!
+Time to deadlift 40 pounds! You got this!
+</pre></div>
+</div>
+
+<textarea data-component="activecode" id=ex_workout_coach data-lang="python"    data-timelimit=25000   data-audio=''     >
+import sys
+
+def workout_coach(lift_name, wt):
+    print("Time to", lift_name, wt, "pounds! You got this!")
+
+def main():
+    sys.setExecutionLimit(120000) # keep program from timing out
+    lifts = ["squat", "bench", "deadlift"]
+    # Your code here
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q5_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import sys
+
+def workout_coach(lift_name, wt):
+    print("Time to", lift_name, wt, "pounds! You got this!")
+
+def main():
+    sys.setExecutionLimit(120000)
+    lifts = ["squat", "bench", "deadlift"]
+    for lift in lifts:
+        keep_lifting = "yes"
+        weight = 0
+        input_prompt = "Keep doing the " + lift + "? Enter yes for the next set."
+        while keep_lifting == "yes":
+            weight = weight + 10
+            if lift == "bench" and weight > 200:
+                break
+            else:
+                workout_coach(lift, weight)
+            keep_lifting = input(input_prompt)
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><div id='q6' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a program to remove all the red from an image.</p>
+<img src="../_static/LutherBellPic.jpg" id="luther.jpg">
+<h4 style="text-align: left;">For this and the following exercises, use the
+luther.jpg photo.</h4>
+<textarea data-component="activecode" id=ex_iter_luther data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q6_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import image
+
+img = image.Image("luther.jpg")
+new_img = image.EmptyImage(img.getWidth(), img.getHeight())
+win = image.ImageWin(img.getWidth(), img.getHeight())
+
+for col in range(img.getWidth()):
+    for row in range(img.getHeight()):
+        p = img.getPixel(col, row)
+
+        new_red = 0
+        green = p.getGreen()
+        blue = p.getBlue()
+
+        new_pixel = image.Pixel(new_red, green, blue)
+
+        new_img.setPixel(col, row, new_pixel)
+
+new_img.draw(win)
+win.exitonclick()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Write a function to convert the image to grayscale.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_7_16 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</li>
+<li><div id='q8' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function to convert an image to black and white.</p>
+
+<textarea data-component="activecode" id=ex_7_17 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q8_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import image
+
+def convert_black_white(input_image):
+    grayscale_image = image.EmptyImage(input_image.getWidth(), input_image.getHeight())
+
+    for col in range(input_image.getWidth()):
+        for row in range(input_image.getHeight()):
+            original_pixel = input_image.getPixel(col, row)
+
+            red = original_pixel.getRed()
+            green = original_pixel.getGreen()
+            blue = original_pixel.getBlue()
+
+            avg = (red + green + blue) / 3.0
+
+            new_pixel = image.Pixel(avg, avg, avg)
+            grayscale_image.setPixel(col, row, new_pixel)
+
+    black_white_image = image.EmptyImage(input_image.getWidth(), input_image.getHeight())
+    for col in range(input_image.getWidth()):
+        for row in range(input_image.getHeight()):
+            original_pixel = grayscale_image.getPixel(col, row)
+            red = original_pixel.getRed()
+            if red > 140:
+                val = 255
+            else:
+                val = 0
+
+            new_pixel = image.Pixel(val, val, val)
+            black_white_image.setPixel(col, row, new_pixel)
+    return black_white_image
+
+def main():
+    img = image.Image("luther.jpg")
+    win = image.ImageWin(img.getWidth(), img.getHeight())
+
+    bw_img = convert_black_white(img)
+    bw_img.draw(win)
+
+    win.exitonclick()
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">Sepia Tone images are those brownish colored images that may remind you of times past. The formula for creating a sepia tone is as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>new_r = (R × 0.393 + G × 0.769 + B × 0.189)
+new_g = (R × 0.349 + G × 0.686 + B × 0.168)
+new_b = (R × 0.272 + G × 0.534 + B × 0.131)
+</pre></div>
+</div>
+<p>Write a function to convert an image to sepia tone. <em>Hint:</em> Remember that RGB values must be integers between 0 and 255.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_7_18 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</li>
+<li><div id='q10' data-component="tabbedStuff" ><div data-component="tab" data-tabname="Question" >
+<p>Write a function to uniformly enlarge an image by a factor of 2 (in other words, make the image twice as wide and twice as tall).</p>
+
+<textarea data-component="activecode" id=ex_7_19 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div><div data-component="tab" data-tabname="Answer" >
+
+<textarea data-component="activecode" id=q10_answer data-lang="python"    data-timelimit=25000   data-audio=''     >
+import image
+
+def double(old_image):
+    old_w = old_image.getWidth()
+    old_h = old_image.getHeight()
+
+    new_img = image.EmptyImage(old_w * 2, old_h * 2)
+    for row in range(old_h):
+        for col in range(old_w):
+            old_pixel = old_image.getPixel(col, row)
+
+            new_img.setPixel(2*col, 2*row, old_pixel)
+            new_img.setPixel(2*col+1, 2*row, old_pixel)
+            new_img.setPixel(2*col, 2*row+1, old_pixel)
+            new_img.setPixel(2*col+1, 2*row+1, old_pixel)
+
+    return new_img
+
+def main():
+    img = image.Image("luther.jpg")
+    win = image.ImageWin(img.getWidth() * 2, img.getHeight() * 2)
+
+    big_img = double(img)
+    big_img.draw(win)
+
+    win.exitonclick()
+
+if __name__ == "__main__":
+     main()
+</textarea>
+</div>
+    </div>
+
+</li>
+<li><p class="first">After you have scaled an image too much it looks blocky. One way of reducing the blockiness of the image is to replace each pixel with the average values of the pixels around it. This has the effect of smoothing out the changes in color. Write a function that takes an image as a parameter and smooths the image. Your function should return a new image that is the same as the old one but smoothed.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_7_20 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</li>
+<li><p class="first">When you scan in images using a scanner they may have lots of noise due to dust particles on the image itself or the scanner itself, or the images themselves may be damaged. One way of eliminating this noise is to replace each pixel by the median value of the pixels surrounding it. Write a program to do this.</p>
+<blockquote>
+<div>
+<textarea data-component="activecode" id=ex_7_22 data-lang="python"    data-timelimit=25000   data-audio=''     >
+
+
+</textarea>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="weekly-graded-assignment">
+<h2>Weekly Graded Assignment<a class="headerlink" href="#weekly-graded-assignment" title="Permalink to this headline">¶</a></h2>
+<div class="full-width container">
+<p>Write a <code class="docutils literal"><span class="pre">course_grader</span></code> function that takes a list of test scores as its parameter. It will add up these test scores and calculate an average score. It should then return a message of <code class="docutils literal"><span class="pre">&quot;pass&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;fail&quot;</span></code> depending on these two conditions:</p>
+<ul class="simple">
+<li>If the average score is greater than or equal to 70 <em>and</em> no single test score is below 50, then return a message of <code class="docutils literal"><span class="pre">&quot;pass&quot;</span></code>.</li>
+<li>If the average score is lower than 70 <em>or</em> at least one test score is below 50, then return a message of <code class="docutils literal"><span class="pre">&quot;fail&quot;</span></code>.</li>
+</ul>
+<p>Some sample function calls with comments on what should be printed out are included in <code class="docutils literal"><span class="pre">main</span></code> for testing purposes. You should only put the code for the <code class="docutils literal"><span class="pre">course_grader</span></code> function into Vocareum.</p>
+
+<textarea data-component="activecode" id=ex_course_grader data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+def course_grader(test_scores):
+    # Your code here
+
+def main():
+    print(course_grader([100,75,45]))     # "fail"
+    print(course_grader([100,70,85]))     # "pass"
+    print(course_grader([80,60,60]))      # "fail"
+    print(course_grader([80,80,90,30,80]))  # "fail"
+    print(course_grader([70,70,70,70,70]))  # "pass"
+
+if __name__ == "__main__":
+    main()
+</textarea>
+</div>
+</div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 9. Glossary' data-toggle="tooltip">
+    <a href="Glossary.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="Glossary.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - Strings' data-toggle="tooltip" >
+    <a href="../ChapterHeadings/Heading9.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="../ChapterHeadings/Heading9.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>

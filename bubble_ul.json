@@ -1,0 +1,45 @@
+
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "animate",
+   "children": [
+    {"name": "Addition", "size": 64},
+    {"name": "Rounding", "size": 94},
+    {"name": "Counting", "size": 22},
+    {
+     "name": "interpolate",
+     "children": [
+      {"name": "Polynomials", "size": 33},
+      {"name": "Factoring", "size": 42}
+     ]
+    },
+    {"name": "Geometry", "size": 11},
+    {"name": "Linear Algebra", "size": 56},
+    {"name": "Something Else Mathematical", "size": 16}
+   ]
+  },
+  {
+   "name": "physics",
+   "children": [
+    {"name": "Even Numbers", "size": 68},
+    {"name": "Division", "size": 81}
+   ]
+  },
+  {
+   "name": "query",
+   "children": [
+    {"name": "Multiplication", "size": 23},
+    {"name": "Quadratic Equations", "size": 43}
+   ]
+  },
+  {
+   "name": "scale",
+   "children": [
+    {"name": "Fill in the Number", "size": 2105},
+    {"name": "Scaling", "size": 2833}
+   ]
+  }
+ ]
+}

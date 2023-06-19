@@ -1,0 +1,85 @@
+@startuml
+!define AWSPuml https://raw.githubusercontent.com/mcwarman/aws-icons-for-plantuml/groups/dist
+
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/AWSSimplified.puml
+!include AWSPuml/AWSGroups.puml
+
+!include AWSPuml/GroupIcons/all.puml
+
+!include AWSPuml/Compute/EC2.puml
+
+!include AWSPuml/GroupIcons/Cloud.puml
+!include AWSPuml/GroupIcons/VirtualPrivateCloudVPC.puml
+!include AWSPuml/GroupIcons/VPCSubnetPublic.puml
+!include AWSPuml/GroupIcons/VPCSubnetPrivate.puml
+
+!include AWSPuml/NetworkingContentDelivery/VPCNATGateway.puml
+!include AWSPuml/NetworkingContentDelivery/VPCInternetGateway.puml
+!include AWSPuml/NetworkingContentDelivery/ElasticLoadBalancingApplicationLoadBalancer.puml
+
+CloudGroup(c, "AWS Cloud (Terraform)") {
+  RegionGroup(w2, "DEV: us-west-2 (oregon)") {
+      VirtualPrivateCloudVPCGroup(w2_vpc, "Default VPC") {
+      
+       GenericGroup(stage_group, "Staging") {
+         
+         ElasticLoadBalancingApplicationLoadBalancer(stage_elb, 'staging.ul.net','_') 
+         
+          EC2InstanceContainerGroup(staging, "EC2 (automated deploy)") {
+            database "db" as staging_db
+            agent "apache/php" as staging_app
+          }
+          
+          stage_elb --> staging_app
+        
+        }
+        
+        GenericGroup(test_env_group, "Ephemeral Test Envs") {
+          ElasticLoadBalancingApplicationLoadBalancer(branch1_elb, 'ff-demo.ul.net','_') 
+          EC2InstanceContainerGroup(branch1, "EC2") {
+            database "db" as branch1_db
+            agent "apache/php" as branch1_app
+         }
+        
+        branch1_elb --> branch1_app
+      
+      }
+      }
+  }
+  RegionGroup(e2, "PROD: us-east-2 (ohio)") {
+      VirtualPrivateCloudVPCGroup(e2_vpc, "Default VPC") {
+        GenericGroup(mecc_group, "MECC UnlockED") {
+          ElasticLoadBalancingApplicationLoadBalancer(mecc_elb, 'mecc.ul.net','_')
+            EC2InstanceContainerGroup(mecc, "EC2") {
+            database "db" as mecc_db
+            agent "apache/php" as mecc_app
+          }
+          
+          mecc_elb --> mecc_app : "insecure"
+          
+        }
+        
+        GenericGroup(canvas_mecc_group, "MECC Canvas") {
+          ElasticLoadBalancingApplicationLoadBalancer(canvas_mecc_elb, 'canvas.mecc.ul.net','_')
+          EC2InstanceContainerGroup(canvas_mecc, "EC2") {
+          agent "canvas_bitnami" as canvas_mecc_app
+        }
+        
+        canvas_mecc_elb --> canvas_mecc_app
+      
+      }
+  }
+}
+}
+
+GenericGroup(mecc_site, "MECC") {
+agent "Dell Server" as dell
+
+}
+
+dell ==> mecc_elb : "secure"
+dell ==> canvas_mecc_elb: "secure"
+
+
+@enduml

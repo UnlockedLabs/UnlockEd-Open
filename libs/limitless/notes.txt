@@ -1,0 +1,4 @@
+assets taken from
+
+C:\wamp64\www\limitless-framework\Limitless_2_2\Bootstrap 4\Template\layout_1\LTR\default\full
+

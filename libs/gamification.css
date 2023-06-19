@@ -1,0 +1,12 @@
+#confetti {
+    z-index:1; /*layers confetti video behind elements */
+    position: absolute;
+    overflow:hidden;
+}
+
+#course_complete {
+    z-index:2; /* layers elements in front of confeti video */
+    position: absolute;
+    width: 100%;
+}
+

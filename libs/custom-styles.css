@@ -1,0 +1,107 @@
+#lc-navigation-header {
+    display:none;
+    position:fixed;
+    width:100%;
+    z-index:20;
+}
+
+/* set z-index to -1 so it appears under #lc-navigation-header */
+#content-area-div {
+    margin-top: 30px;
+    /*  
+    z-index: 1;
+    */
+}
+
+.sidebar-right {
+    z-index: 100;
+}
+
+.uniform-checker span {
+    /* background: #ffffff; */
+    color: #ffffff;
+    border: .125rem solid #ffffff;
+}
+
+a.stdnt-ham, a.cohort-ham {
+    color: #ffffff;
+    transition: opacity ease-in-out .25s;
+}
+
+a.stdnt-ham:hover, a.cohort-ham:hover {
+    opacity: .75;
+}
+
+.usertag, .cohorttag {
+    margin-top: 0%;
+    padding: 0.625rem 1.25rem;
+}
+
+.student-container, .cohort-container {
+    padding: 0.25rem;
+}
+
+#admin-title, .admin-menu-toggle, .nav-item-submenu {
+    cursor: pointer;
+}
+
+.admin-menu-toggle:hover {
+    background-color: rgba(0,0,0,.15) !important;
+}
+
+.tooltip-title {
+    font-weight: bold;
+}
+
+
+/* LOGIN BACKGROUND AND IMAGE BLUR */
+
+#welcome_img {
+    z-index: 1;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    viewport-fit:inherit;
+}
+
+.blur {
+  -webkit-animation: blur 1s;  
+  -moz-animation: blur 1s;
+  animation: blur 1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;  
+  animation-fill-mode: forwards;  
+}
+
+@-webkit-keyframes blur {
+  0% { 
+        -webkit-filter: blur(0px);
+    }
+  100% { 
+        -webkit-filter: blur(10px); 
+    }
+}
+
+@-moz-keyframes blur {
+  0% { 
+        -moz-filter: blur(0px);
+    }
+  100% { 
+        -moz-filter: blur(10px); 
+    }
+}
+
+@keyframes blur {
+  0% { 
+        filter: blur(0px);
+    }
+  100% { 
+        filter: blur(10px); 
+    }
+}
+
+/* DASHBOARD */
+
+#quoteGenerator {
+    height: 100%;
+}

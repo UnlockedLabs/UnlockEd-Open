@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>10. Yahtzee &mdash; How to Think like a Computer Scientist: Interactive Edition</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/livecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/dragndrop.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modal-basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/clickable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fitb.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/datafile.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codesplain.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/xml.js"></script>
+    <script type="text/javascript" src="../_static/css.js"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/javascript.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js"></script>
+    <script type="text/javascript" src="../_static/livecode.js"></script>
+    <script type="text/javascript" src="../_static/clike.js"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons_setup.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js"></script>
+    <script type="text/javascript" src="../_static/reveal.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/codelens.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/clickable.js"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js"></script>
+    <script type="text/javascript" src="../_static/timedmc.js"></script>
+    <script type="text/javascript" src="../_static/fitb.js"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js"></script>
+    <script type="text/javascript" src="../_static/timed.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js"></script>
+    <script type="text/javascript" src="../_static/codesplain.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="top" title="How to Think like a Computer Scientist: Interactive Edition" href="../toc.html" />
+    <link rel="next" title="11. Counting Characters" href="counting-characters.html" />
+    <link rel="prev" title="9. Bubble Sort" href="bubble-sort.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'https://runestone.launchcode.org' ? 'https://runestone.launchcode.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'thinkcspy';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = true;
+  eBookConfig.build_info = "3.5.1";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = true;
+  eBookConfig.python3 = true;
+  eBookConfig.basecourse = 'thinkcspy';
+  eBookConfig.lang = 'python'
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+  </head>
+  <body role="document">
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/lc_logo_small.png") no-repeat 0px 0px;' href="../index.html">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Think Python</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- scratch code dropdown -->
+        <li>
+          <a href="javascript:ACFactory.toggleScratchActivecode()">
+            <i class="glyphicon glyphicon-edit" style='opacity:0.9;'></i>
+          </a>
+        </li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href='../genindex.html'>Directory of Concepts</a></li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- navigation dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-align-justify" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href="../toc.html">Table of Contents</a></li>
+            <li><a href="../genindex.html">Index</a></li>
+<!-- launchcode account section removed -->
+        </li>
+        <!-- end navigation dropdown -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content">
+  
+  <div class="section" id="yahtzee">
+<h1>10. Yahtzee<a class="headerlink" href="#yahtzee" title="Permalink to this headline">¶</a></h1>
+<p><em>Studios are in-class activities to give you hands-on practice with new concepts. The first half is the Walkthrough, an instructor-led programming problem. The second half is for you to work on individually or in pairs in class.</em></p>
+<p><em>These problems are not graded, and you are not obligated to finish them. Get as far as you can while in class, and use them as an opportunity to play with and solidify new concepts.</em></p>
+<div class="section" id="walkthrough">
+<h2>Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
+<p>Imagine that you work for a large retailer, writing software for its internal accounting system. You&#8217;ve been asked to write a function <code class="docutils literal"><span class="pre">average_sales</span></code> that can take a set of data representing daily sales at a given store, and calculate the average sales for each week represented by the data.</p>
+<p>The data is structured as follows:</p>
+<p>A single week of daily sales is a list with 7 entries, one for each day of the week (index 0 = Monday, index 6 = Sunday): <code class="docutils literal"><span class="pre">[1512.30,</span> <span class="pre">1555.72,</span> <span class="pre">1989.77,</span> <span class="pre">2101.33,</span> <span class="pre">1884.45,</span> <span class="pre">1333.33,</span> <span class="pre">1456.23]</span></code></p>
+<p>You are given data for several weeks at once, collected into a list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sales</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1512.30</span><span class="p">,</span> <span class="mf">1555.72</span><span class="p">,</span> <span class="mf">1989.77</span><span class="p">,</span> <span class="mf">2101.33</span><span class="p">,</span> <span class="mf">1884.45</span><span class="p">,</span> <span class="mf">1333.33</span><span class="p">,</span> <span class="mf">1456.23</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">1215.340</span><span class="p">,</span> <span class="mf">1565.99</span><span class="p">,</span> <span class="mf">2989.34</span><span class="p">,</span> <span class="mf">2301.77</span><span class="p">,</span> <span class="mf">1234.81</span><span class="p">,</span> <span class="mf">1923.44</span><span class="p">,</span> <span class="mf">2282.39</span><span class="p">],</span>
+<span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Therefore, <code class="docutils literal"><span class="pre">sales</span></code> is a list of lists. So here, <code class="docutils literal"><span class="pre">sales[0]</span></code> is a list of sales totals for each day of the first week, <code class="docutils literal"><span class="pre">sales[1]</span></code> a list of sales totals for each day of the second week, and so on. We will implement <code class="docutils literal"><span class="pre">average_sales</span></code> so that it returns a list of the averages for each week.</p>
+<p>So if <code class="docutils literal"><span class="pre">sales</span></code> is the list above and we call <code class="docutils literal"><span class="pre">weekly_averages</span> <span class="pre">=</span> <span class="pre">average_sales(sales)</span></code>, then <code class="docutils literal"><span class="pre">weekly_averages[0]</span></code> is the average for week 0, and so on.</p>
+
+<textarea data-component="activecode" id=yahtzee_walkthrough data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+from test import testEqual
+
+def average_sales(daily_sales):
+
+    num_weeks = len(daily_sales)
+    weekly_averages = [0 for i in range(num_weeks)]
+
+    for week in range(0, num_weeks):
+
+        # calculate the average for the given week
+        week_sum = 0
+        for day_total in daily_sales[week]:
+            week_sum += day_total
+
+        weekly_averages[week] = week_sum / len(daily_sales[week])
+
+    return weekly_averages
+
+
+sales = [[1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 2, 0, 2, 1, 1]]
+
+testEqual(average_sales(sales), [1, 1])
+</textarea>
+</div>
+<div class="section" id="studio">
+<h2>Studio<a class="headerlink" href="#studio" title="Permalink to this headline">¶</a></h2>
+<p>In this studio, we write some functions that could be used in a simulation of Yahtzee. The program asks the user for the number of die they roll and the number of times the dice are thrown. The <code class="docutils literal"><span class="pre">roll_dice</span></code> function is given to you. You must create the <code class="docutils literal"><span class="pre">sum_of_roll</span></code> function. If you finish that, you move on to the bonus function, <code class="docutils literal"><span class="pre">yahtzee</span></code>.</p>
+
+<textarea data-component="activecode" id=yahtzee_studio data-lang="python"    data-timelimit=25000  data-codelens="true" data-audio=''     >
+import random
+from test import testEqual
+
+# The roll_dice function simulates the rolling of the dice. It
+# creates a 2 dimensional list: each column is a die and each
+# row is a throw. The function generates random numbers 1-6
+# and puts them in the list.
+def roll_dice(num_dice, num_rolls):
+
+    # create a two-dimensional (num_dice by num_rolls) of zeros
+    double_list = [[0 for i in range(num_dice)] for j in range(num_rolls)]
+
+    # loop through each row and column, filling it with a random roll
+    for roll in range(0, len(double_list)):
+      for die in range(0, len(double_list[roll])):
+          double_list[roll][die] = (int)(random.random()*6 + 1)
+
+    return double_list
+
+
+# This function takes a 2D list (which can be generated by roll_dice)
+# and sums the value of all the dice in each row. It returns a 1
+# dimensional list with the sum of each throw.
+# Example:
+# double_list: [[1, 5, 6],[2, 3, 1],[1, 3, 3]]
+# sum_of_roll should return: [12, 6, 7]
+def sum_of_roll(double_list):
+    # Your code here
+
+
+# Bonus function! Takes a 2D list and returns
+# the number of times a person rolls Yahtzee (all dice have
+# the same value). Hint: you may want to create a helper
+# function that takes individual rows of the list.
+def yahtzee(double_list):
+    # Bonus: your code here
+    return 0
+
+
+# To play, yo'd do something like this
+# dice = input("How many dice?")
+# rolls = input("What is the number of rolls?")
+# list = roll_dice(dice, rolls)
+# print("Sum of roll:", sum_of_roll(list))
+
+print("Testing sum_of_roll...")
+testEqual(sum_of_roll([[4, 5, 2],[6,2,1],[4,4,4]]), [11, 9, 12])
+testEqual(sum_of_roll([[3, 4, 6],[2,6,1],[3,4,3]]), [13, 9, 10])
+print("Testing yahtzee...")
+testEqual(yahtzee([[4, 5, 2],[6,2,1],[4,4,4]]), 1)
+testEqual(yahtzee([[3, 4, 6],[2,6,1],[3,4,3]]), 0)
+</textarea>
+</div>
+</div>
+
+
+  
+      
+  <li id="relations-prev" class="navLink" title='Previous Section - 9. Bubble Sort' data-toggle="tooltip">
+    <a href="bubble-sort.html" >
+      <i class='prevNav glyphicon glyphicon-chevron-left'></i>
+    </a>
+  </li>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="bubble-sort.html" ></a>
+
+  
+  <li id="relations-next" class="navLink" title='Next Section - 11. Counting Characters' data-toggle="tooltip" >
+    <a href="counting-characters.html" >
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right'></i>
+    </a>
+  </li>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="counting-characters.html" ></a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78748330-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  </body>
+</html>
