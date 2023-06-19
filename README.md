@@ -34,10 +34,19 @@ This software requires:
 Deployment of UnlockED is intended to be very straightforward. It can be deployed by:
 
 1. Cloning this project repo to the root of their apache web server
-2. Set permissions on the cloned directory to allow apache to write to the directory (UNSAFE QUICK ANSWER: chmod 777 -R unlocked)
+2. Set permissions on the cloned directory to allow apache to write to the directory (UNSAFE QUICK ANSWER: chmod 777 -R UnlockEd-Open)
 3. Setting up a virtual host that points to the root directory of this project
 4. Create the following MySQL databases: 'learning_center_api_db' and 'learning_center_api_analytics'
-5. Adjusting the database connection settings in the /config/database.php and /analytics/config/database.php files to match those of your MySql server
+5. Adjusting the database connection settings in the /config/database.php and /analytics/config/database.php files to match those of your MySql server:
+
+        // specify your own database credentials
+        
+        private $host = "localhost";
+        private $db_name = "learning_center_api_db";
+        private $username = "root";
+        private $password = "yourpassword";
+        public $conn;
+
 6. Set your site_url in the create tables script (NOTE: You can either do this here, or complete the table population and
 manually modify the setting in the site_settings table):
 - On line 165 of config/populate-tables.php change the site_url value from :
@@ -51,6 +60,9 @@ to
 [replace the bracketed text with your base url to the UnlockEd instance]
 
 7. Installing the MySql tables by running the table creation/population scripts (i.e. open the following in a browser in order):
+>Make sure the user you configured in config/database.php is using native authentication mode
+
+
 * /config/create-tables.php
 * /config/populate-tables.php
 * /analytics/config/create-tables.php
