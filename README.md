@@ -38,15 +38,32 @@ Deployment of UnlockED is intended to be very straightforward. It can be deploye
 3. Setting up a virtual host that points to the root directory of this project
 4. Create the following MySQL databases: 'learning_center_api_db' and 'learning_center_api_analytics'
 5. Adjusting the database connection settings in the /config/database.php and /analytics/config/database.php files to match those of your MySql server
-6. Installing the MySql tables by running the table creation/population scripts (i.e. open the following in a browser in order):
+6. Set your site_url in the create tables script (NOTE: You can either do this here, or complete the table population and
+manually modify the setting in the site_settings table):
+- On line 165 of config/populate-tables.php change the site_url value from :
+
+>'bc1853ad-66e0-4bbb-a5fe-d79632d07b1d', 'site_url', 'http://ec2-50-16-145-134.compute-1.amazonaws.com/', '1' 
+    
+to
+
+>'bc1853ad-66e0-4bbb-a5fe-d79632d07b1d', 'site_url', '[your site's base url]', '1',
+
+[replace the bracketed text with your base url to the UnlockEd instance]
+
+7. Installing the MySql tables by running the table creation/population scripts (i.e. open the following in a browser in order):
 * /config/create-tables.php
 * /config/populate-tables.php
 * /analytics/config/create-tables.php
 * /analytics/config/populate-tables.php
-7. Open a browser to the root of the domain.
-8. Login using the credentials:
+8. Open a browser to the root of the domain.
+9. Login using the credentials:
 	* User: superadmin
 	* Password: pwd
+
+NOTE: If you did not modify the populate-tables.php script before you ran the scripts in step 7, then you must modify the site_setting in your mysql database:
+
+- connect with your mysql client to the learning_center_api_db database
+- run the command 'UPDATE site_settings SET value=[your sites base url] WHERE settings=site_url;'  
 
 ## Development Team
 
