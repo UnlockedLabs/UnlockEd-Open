@@ -7,7 +7,7 @@ class Database
 	private $host = "localhost";
 	private $db_name = "learning_center_api_db";
 	private $username = "root";
-	private $password = "password";
+	private $password = "admin";
 	public $conn;
 
     public function enableFKChecks()
@@ -34,7 +34,7 @@ class Database
             $this->conn = new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             //listen for php and mysql errors
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        }catch(PDOException $exception){
+        }catch(\PDOException $exception){
             echo "Connection error: " . $exception->getMessage();
         }
 
