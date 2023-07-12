@@ -6,11 +6,18 @@ require_once 'TrivialOAuthDataStore.php';
 // Returns true if this is a Basic LTI message
 // with minimum values to meet the protocol
 function is_basic_lti_request() {
-   $good_message_type = $_REQUEST["lti_message_type"] == "basic-lti-launch-request";
-   $good_lti_version = ($_REQUEST["lti_version"] == "LTI-1p3") || ($_REQUEST["lti_version"] == 'LTI-1.3');
-   $resource_link_id = $_REQUEST["resource_link_id"];
-   if ($good_message_type and $good_lti_version and isset($resource_link_id) ) return(true);
-   return false;
+    $good_message_type = null;
+    if (isset($_REQUEST["lti_message_type"])) {
+        $good_message_type = $_REQUEST["lti_message_type"] == "basic-lti-launch-request";
+    }
+    if (isset($_REQUEST["lti_version"])) {
+        $good_lti_version = ($_REQUEST["lti_version"] == "LTI-1p3") || ($_REQUEST["lti_version"] == 'LTI-1.3');
+    }
+    if (isset($_REQUEST["resource_link_id"])) {
+        $resource_link_id = $_REQUEST["resource_link_id"];
+    }
+    if ($good_message_type and $good_lti_version and isset($resource_link_id) ) return(true);
+    return false;
 }
 
 // Basic LTI Class that does the setup and provides utility
