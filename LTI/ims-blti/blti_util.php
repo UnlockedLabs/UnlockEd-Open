@@ -175,7 +175,7 @@ function postLaunchHTML($newparms, $endpoint, $debug=false, $iframeattr=false) {
         $r .= "  //]]> \n" ;
         $r .= "</script>\n";
         $r .= "<a id=\"displayText\" href=\"javascript:basicltiDebugToggle();\">";
-        $r .= get_string("toggle_debug_data","basiclti")."</a>\n";
+        $r .= get_string("Toggle Debug Data","basiclti")."</a>\n";
         $r .= "<div id=\"basicltiDebug\" style=\"display:none\">\n";
         $r .=  "<b>".get_string("basiclti_endpoint","basiclti")."</b><br/>\n";
         $r .= $endpoint . "<br/>\n&nbsp;<br/>\n";

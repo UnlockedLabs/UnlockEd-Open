@@ -67,31 +67,46 @@ foreach ($lmsdata as $k => $val ) {
 }
 
 $cur_url = curPageURL();
-    if (isset($_REQUEST["key"])) {
-        $ltikey = $_REQUEST["key"];
-    }
-    if ( ! $key ) $key = "12345";
-    if (isset($_REQUEST["secret"])) {
-        $secret = $_REQUEST["secret"];
-    }
-    if ( ! $secret ) $secret = "secret";
-    if (isset($_REQUEST["endpoint"])) {
-        $endpoint = $_REQUEST["endpoint"];
-    }
+// $ltikey = null;
+$secret = null;
+$endpoint = null;
+$outcomes = null;
+$xmldesc = null;
+    // if (isset($_REQUEST["ltikey"])) {
+        $ltikey = @$_REQUEST["ltikey"];
+    // }
+    // if ( ! $ltikey ) $ltikey = "12345";
+    // $ltikey ? $ltikey : $ltikey = "12345";
+    $ltikey = ($ltikey ? $ltikey : "12345");
+    // if (isset($_REQUEST["secret"])) {
+        $secret = @$_REQUEST["secret"];
+    // }
+    // if ( ! $secret ) $secret = "secret";
+    $secret = ($secret ? $secret : "secret");
+    // if (isset($_REQUEST["endpoint"])) {
+        $endpoint = @$_REQUEST["endpoint"];
+    // }
     $b64 = base64_encode($ltikey.":::".$secret);
-    if ( ! $endpoint ) $endpoint = str_replace("lms.php","tool.php",$cur_url);
+    // if ( ! $endpoint ) $endpoint = str_replace("lms.php","tool.php",$cur_url);
+    // if ( ! $endpoint ) $endpoint = str_replace("create_topic.php","LTI/tool.php",$cur_url);
+    $endpoint = ($endpoint ? $endpoint : str_replace("create_topic.php","LTI/tool.php",$cur_url));
 
-  $outcomes = $_REQUEST["outcomes"];
-  if ( ! $outcomes ) {
-      $outcomes = str_replace("lms.php","tool_consumer_outcome.php",$cur_url);
-      $outcomes .= "?b64=" . htmlentities($b64);
-  }
+    // if (isset($_REQUEST["outcomes"])) {
+        $outcomes = @$_REQUEST["outcomes"];
+    // }
+    if ( ! $outcomes ) {
+        // $outcomes = str_replace("create_topic.php","tool_consumer_outcome.php",$cur_url) . "?b64=" . htmlentities($b64);
+        $outcomes = str_replace("create_topic.php","tool_consumer_outcome.php",$cur_url);
+        $outcomes .= "?b64=" . htmlentities($b64);
+    }
 
-  $tool_consumer_instance_guid = $lmsdata['tool_consumer_instance_guid'];
-  $tool_consumer_instance_description = $lmsdata['tool_consumer_instance_description'];
+    $tool_consumer_instance_guid = $lmsdata['tool_consumer_instance_guid'];
+    $tool_consumer_instance_description = $lmsdata['tool_consumer_instance_description'];
 
-  $xmldesc = str_replace("\\\"","\"",$_REQUEST["xmldesc"]);
-  if ( ! $xmldesc ) $xmldesc = $default_desc;
+    if (isset($_REQUEST["xmldesc"])) {
+        $xmldesc = str_replace("\\\"","\"",$_REQUEST["xmldesc"]);
+    }
+    if ( ! $xmldesc ) $xmldesc = $default_desc;
 
 
 
@@ -177,7 +192,7 @@ if ($_POST) {
   echo("<fieldset><legend>BasicLTI Resource</legend>\n");
   $disabled = '';
   echo("Launch URL: <input size=\"60\" type=\"text\" $disabled size=\"60\" name=\"endpoint\" value=\"$endpoint\">\n");
-  echo("<br/>Key: <input type\"text\" name=\"key\" $disabled size=\"60\" value=\"$key\">\n");
+  echo("<br/>Key: <input type\"text\" name=\"ltikey\" $disabled size=\"60\" value=\"$ltikey\">\n");
   echo("<br/>Secret: <input type\"text\" name=\"secret\" $disabled size=\"60\" value=\"$secret\">\n");
   echo("</fieldset><p>");
   echo("<fieldset><legend>Launch Data</legend>\n");
@@ -207,7 +222,7 @@ if ($_POST) {
   }
     
 
-  $parms = signParameters($parms, $endpoint, "POST", $key, $secret, "Press to Launch", $tool_consumer_instance_guid, $tool_consumer_instance_description);
+  $parms = signParameters($parms, $endpoint, "POST", $ltikey, $secret, "Press to Launch", $tool_consumer_instance_guid, $tool_consumer_instance_description);
 
   $content = postLaunchHTML($parms, $endpoint, true, 
      "width=\"100%\" height=\"900\" scrolling=\"auto\" frameborder=\"1\" transparency");
