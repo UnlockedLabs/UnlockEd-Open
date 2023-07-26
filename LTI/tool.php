@@ -20,8 +20,9 @@ header('Content-Type: text/html; charset=utf-8');
 <?php
    if ($lti->valid) {
 ?>
-    <h2>Hello, World!</h2>
+    <h2>Hello, <?php echo $_POST['lis_person_name_full']; ?>!</h2>
     <p>We have implemented a basic LTI tool!</p>
+    <p>According to UnlockEd, you have the role of <?php echo $lti->info['roles']; ?>.</p>
     <h3>A basic dump of POST parameters:</h3>
     <pre> 
  <?php

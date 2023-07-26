@@ -23,7 +23,8 @@ require_once 'OAuth.php';
 
   function validateDescriptor($descriptor)
   {
-    $xml = new SimpleXMLElement($xmldata);
+    // $xml = new SimpleXMLElement($xmldata);
+    $xml = new SimpleXMLElement($descriptor);
     if ( ! $xml ) {
        echo("Error parsing Descriptor XML\n");
        return;

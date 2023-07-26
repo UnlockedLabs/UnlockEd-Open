@@ -172,7 +172,7 @@ if ($_POST) {
     <div id="lmsDataForm" style="display:block">
         <form method="post">
             <input type="submit" value="Recompute Launch Data">
-            <input type="submit" name="reset" value="Reset">
+            <input type="reset" name="reset" value="Reset">
             <fieldset>
                 <legend>Basic LTI Resource</legend>
                 <div class="form-group">
