@@ -36,6 +36,10 @@ require_once dirname(__FILE__).'/objects/category.php';
 require_once dirname(__FILE__).'/LTI/misc.php';
 require_once dirname(__FILE__).'/LTI/ims-blti/blti_util.php';
 
+
+// This is a dummy comment for Jira testing
+
+
 // dummy data for LTI Launch
 $lmsdata = array(
     "resource_link_id" => "120988f929-274612",
@@ -57,14 +61,17 @@ $lmsdata = array(
     "tool_consumer_instance_description" => "University of School (LMSng)",
 );
 
-// for the POST back to replace dummy values with POST values
-foreach ($lmsdata as $k => $val ) {
-    if (isset($_POST[$k])) {
-      if ( $_POST[$k] && strlen($_POST[$k]) > 0 ) {
-          $lmsdata[$k] = $_POST[$k];
-      }
+if ($_POST) {
+    // for the POST back to replace dummy values with POST values
+    foreach ($lmsdata as $k => $val ) {
+        if (isset($_POST[$k])) {
+          if ( $_POST[$k] && strlen($_POST[$k]) > 0 ) {
+              $lmsdata[$k] = $_POST[$k];
+          }
+        }
     }
 }
+
 
 $cur_url = curPageURL();
 
@@ -94,6 +101,7 @@ $tool_consumer_instance_description = $lmsdata['tool_consumer_instance_descripti
 
 $xmldesc = @$_REQUEST["xmldesc"];
 $xmldesc = ($xmldesc ? str_replace("\\\"","\"",$_REQUEST["xmldesc"]) : $default_desc);
+
 
 // instantiate database and product object
 $database = new Database();
@@ -177,10 +185,13 @@ if ($_POST) {
                 <legend>Basic LTI Resource</legend>
                 <div class="form-group">
                     <label for="launchUrl">Launch URL</label>
+                    <!-- <input type="text" name='endpoint' size="60" id="launchUrl"><br> -->
                     <input type="text" name='endpoint' size="60" id="launchUrl" value=<?php echo $endpoint ?>><br>
                     <label for="ltiKey">Key</label>
+                    <!-- <input type="text" name='ltikey' size="60" id="ltiKey"><br> -->
                     <input type="text" name='ltikey' size="60" id="ltiKey" value=<?php echo $ltikey ?>><br>
                     <label for="secret">Secret</label>
+                    <!-- <input type="text" name='secret' size="60" id="secret"> -->
                     <input type="text" name='secret' size="60" id="secret" value=<?php echo $secret ?>>
                 </div>
             </fieldset>
@@ -194,6 +205,7 @@ foreach ($lmsdata as $k => $val ) {
 echo("</fieldset>\n");
 echo("</form>\n");
 echo("</div>\n");
+// echo("<input type=\"submit\" id=\"ltiLaunch\" name=\"ext_submit\" value=\"Press to Launch\">\n");
 echo("<hr>");
 
 $parms = $lmsdata;
@@ -285,33 +297,24 @@ $('#displayText').on('click', function(e) {
     }
 });
 
+$('#displayDebugData').on('click', function(e) {
+
+    e.preventDefault();
+
+    var $content = $("#basicltiDebug");
+    if ($content.css("display") == "block") {
+        $content.css("display", "none");
+    }
+    else {
+        $content.css("display", "block");
+    }
+});
+
+$('#ltiLaunch').on('click', function(e) {
+    $('#ltiLaunchForm').submit();
+});
+
 }) ();
-</script>
-
-<script>
-/* 
-Immediately invoked function (IIFE).
-Executes as soon as js sees it.
-Runs in it own scope.
-*/
-
-// (function(){
-
-//     $('#displayText').on('click', function(e) {
-
-//         e.preventDefault();
-//         console.log("I was clicked!");
-
-//         var $content = $("#lmsDataForm");
-//         if ($content.css("display") == "block") {
-//             $content.css("display", "none");
-//         }
-//         else {
-//             $content.css("display", "block");
-//         }
-//     });
-
-// }) ();
 </script>
 
 <!-- just a simple toggle for the LMS Resource and Launch Data -->

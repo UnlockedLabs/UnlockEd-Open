@@ -152,6 +152,7 @@ function postLaunchHTML($newparms, $endpoint, $debug=false, $iframeattr=false) {
         $key = htmlspecialchars($key);
         $value = htmlspecialchars($value);
         if ( $key == "ext_submit" ) {
+          // continue;
             $r .= "<input type=\"submit\" name=\"";
         } else {
             $r .= "<input type=\"hidden\" name=\"";
@@ -162,20 +163,7 @@ function postLaunchHTML($newparms, $endpoint, $debug=false, $iframeattr=false) {
         $r .= "\"/>\n";
     }
     if ( $debug ) {
-        $r .= "<script language=\"javascript\"> \n";
-        $r .= "  //<![CDATA[ \n" ;
-        $r .= "function basicltiDebugToggle() {\n";
-        $r .= "    var ele = document.getElementById(\"basicltiDebug\");\n";
-        $r .= "    if(ele.style.display == \"block\") {\n";
-        $r .= "        ele.style.display = \"none\";\n";
-        $r .= "    }\n";
-        $r .= "    else {\n";
-        $r .= "        ele.style.display = \"block\";\n";
-        $r .= "    }\n";
-        $r .= "} \n";
-        $r .= "  //]]> \n" ;
-        $r .= "</script>\n";
-        $r .= "<a id=\"displayText\" href=\"javascript:basicltiDebugToggle();\">";
+        $r .= "<a id=\"displayDebugData\" href=\"javascript:basicltiDebugToggle();\">";
         $r .= get_string("Toggle Debug Data","basiclti")."</a>\n";
         $r .= "<div id=\"basicltiDebug\" style=\"display:none\">\n";
         $r .=  "<b>".get_string("basiclti_endpoint","basiclti")."</b><br/>\n";
@@ -195,21 +183,25 @@ function postLaunchHTML($newparms, $endpoint, $debug=false, $iframeattr=false) {
         $r .= "<iframe name=\"basicltiLaunchFrame\"  id=\"basicltiLaunchFrame\" src=\"\"\n";
         $r .= $iframeattr . ">\n<p>".get_string("frames_required","basiclti")."</p>\n</iframe>\n";
     }
-    if ( ! $debug ) {
-        $ext_submit = "ext_submit";
-        $ext_submit_text = $submit_text;
-        $r .= " <script type=\"text/javascript\"> \n" .
-            "  //<![CDATA[ \n" .
-            "    document.getElementById(\"ltiLaunchForm\").style.display = \"none\";\n" .
-            "    nei = document.createElement('input');\n" .
-            "    nei.setAttribute('type', 'hidden');\n" .
-            "    nei.setAttribute('name', '".$ext_submit."');\n" .
-            "    nei.setAttribute('value', '".$ext_submit_text."');\n" .
-            "    document.getElementById(\"ltiLaunchForm\").appendChild(nei);\n" .
-            "    document.ltiLaunchForm.submit(); \n" .
-            "  //]]> \n" .
-            " </script> \n";
-    }
+
+
+
+
+    // if ( ! $debug ) {
+    //     $ext_submit = "ext_submit";
+    //     $ext_submit_text = $submit_text;
+    //     $r .= " <script type=\"text/javascript\"> \n" .
+    //         "  //<![CDATA[ \n" .
+    //         "    document.getElementById(\"ltiLaunchForm\").style.display = \"none\";\n" .
+    //         "    nei = document.createElement('input');\n" .
+    //         "    nei.setAttribute('type', 'hidden');\n" .
+    //         "    nei.setAttribute('name', '".$ext_submit."');\n" .
+    //         "    nei.setAttribute('value', '".$ext_submit_text."');\n" .
+    //         "    document.getElementById(\"ltiLaunchForm\").appendChild(nei);\n" .
+    //         "    document.ltiLaunchForm.submit(); \n" .
+    //         "  //]]> \n" .
+    //         " </script> \n";
+    // }
     $r .= "</div>\n";
     return $r;
 }
