@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Topic
+ * Register LTI Tool
  *
  * Process create topic form and insert topic into table.
  * Don't show page unless user is at least admin level 2.
@@ -159,7 +159,7 @@ if ($_POST) {
 }
 ?>
 
-<div class="card container">
+<!-- <div class="card container">
     <div class="card-body">
         <h3 class="card-title text-center"><?php echo $category_name; ?></h3>
         <h3 class="card-title">Create New Topic</h3>
@@ -175,12 +175,12 @@ if ($_POST) {
             <button type="submit" class="btn btn-primary">Create Topic</button>
         </form>
     </div>
-</div>
+</div> -->
 
 <div class="card container">
     <div class="card-body">
         <h3 class="card-title text-center"><?php echo $category_name; ?></h3>
-        <h3 class="card-title">Create New LTI 1.1 Consumer Launch</h3>
+        <h3 class="card-title">Register an LTI Tool</h3>
         <h4>This is a very simple reference implementation of the LMS side (i.e. consumer) for IMS LTI 1.1.</h4>
         <a id="displayText" href="">Toggle Resource and Launch Data</a>
         <!-- <a id="displayText" href="javascript:lmsdataToggle();">Toggle Resource and Launch Data</a> -->

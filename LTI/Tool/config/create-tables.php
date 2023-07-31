@@ -57,6 +57,7 @@ function alterTable($name, $query)
     }
 }
 
+// This table schema was based upon the 1EdTech/LTI-Tool-Provider-Library-PHP repository wiki
 createTable(
     'lti2_consumer',
     'consumer_pk int(11) NOT NULL AUTO_INCREMENT,

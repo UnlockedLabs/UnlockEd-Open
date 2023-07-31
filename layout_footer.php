@@ -116,6 +116,7 @@ namespace unlockedlabs\unlocked;
 
     <script src="<?php echo LIBSDIR; ?>/js/custom/category.js"></script>
     <script src="<?php echo LIBSDIR; ?>/js/custom/topic.js"></script>
+    <script src="<?php echo LIBSDIR; ?>/js/custom/tool.js"></script>
     <script src="<?php echo LIBSDIR; ?>/js/custom/course.js"></script>
     <script src="<?php echo LIBSDIR; ?>/js/custom/lesson.js"></script>
     <script src="<?php echo LIBSDIR; ?>/js/custom/quiz.js"></script>
