@@ -8,7 +8,7 @@
  * Validate required fields. Process properly completed form.
  * Insert/create topic.
  *
- * PHP version 7.2.5
+ * PHP version 8.1.0
  *
  * @category Main_App
  * @package  UnlockED
@@ -37,12 +37,11 @@ require_once dirname(__FILE__).'/objects/category.php';
 // include LTI library and utility files
 require_once dirname(__FILE__).'/LTI/misc.php';
 require_once dirname(__FILE__).'/LTI/ims-blti/blti_util.php';
-require_once dirname(__FILE__).'/LTI/Tool/config/database.php';
+require_once dirname(__FILE__).'/LTI/Platform/config/database.php';
 require_once dirname(__FILE__).'/LTI/objects/tool.php';
 
 
-// This is a dummy comment for Jira testing
-$database2 = new \LTITool\Database();
+$database2 = new \LTIPlatform\Database();
 // $database2 = new \LTITool\Database();
 $db2 = $database2->getConnection();
 $tool = new \LTITool\Tool($db2);
@@ -98,7 +97,7 @@ $endpoint = @$_REQUEST["endpoint"];
 
 $b64 = base64_encode($ltikey.":::".$secret);
 
-$endpoint = ($endpoint ? $endpoint : str_replace("create_topic.php","LTI/tool.php",$cur_url));
+$endpoint = ($endpoint ? $endpoint : str_replace("register_tool.php","LTI/tool.php",$cur_url));
 
 $outcomes = @$_REQUEST["outcomes"];
 $outcomes = ($outcomes ? $outcomes : str_replace("create_topic.php","tool_consumer_outcome.php",$cur_url) . "?b64=" . htmlentities($b64));
@@ -127,27 +126,45 @@ $topic->category_id = $id;
 // if the form was submitted
 if ($_POST) {
     // set topic property values
-    $topic_name = $_POST['topic_name'];
-    $topic_url = $_POST['topic_url'];
+    $name = $_POST['name'];
+    $client_id = $_POST['client_id'];
+    $provider_url = $_POST['provider_url'];
+    $consumer_key = $_POST['consumer_key'];
+    $version = $_POST['version'];
+    $secret = $_POST['secret'];
     
-    if ((empty($topic_name))) {
+    if ((empty($name))) {
         echo "<div class='alert alert-danger'>Name cannot be empty.</div>";
+    } elseif ((empty($client_id))) {
+        echo "<div class='alert alert-danger'>Provider ID cannot be empty.</div>";
+    } elseif ((empty($provider_url))) {
+        echo "<div class='alert alert-danger'>Provider URL cannot be empty.</div>";
+    } elseif ((empty($consumer_key))) {
+        echo "<div class='alert alert-danger'>Consumer (Platform) Key cannot be empty.</div>";
+    } elseif ((empty($version))) {
+        echo "<div class='alert alert-danger'>LTI Version cannot be empty.</div>";
+    } elseif ((empty($secret))) {
+        echo "<div class='alert alert-danger'>Secret cannot be empty.</div>";
     } else {
-        $topic->topic_name = $topic_name;
-        $topic->topic_url = $topic_url;
+        $tool->name = $name;
+        $tool->client_id = $client_id;
+        $tool->provider_url = $provider_url;
+        $tool->consumer_key = $consumer_key;
+        $tool->version = $version;
+        $tool->secret = $secret;
 
         //ensure the topic does not exists
-        if ($topic->topicExists()) {
-            //$topic->topic_name=$topic_name;
-            echo "<div class=\"alert alert-danger alert-dismissable\">";
-            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
-            echo "Topic already exists.";
-            echo "</div>";
-        } elseif ($topic->create()) {
+        // if ($topic->topicExists()) {
+        //     //$topic->topic_name=$topic_name;
+        //     echo "<div class=\"alert alert-danger alert-dismissable\">";
+        //     echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
+        //     echo "Topic already exists.";
+        //     echo "</div>";
+        if ($tool->register()) {
             // tell the user new topic was created
             echo "<div class=\"alert alert-success alert-dismissable\">";
             echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
-            echo "Topic was created. Please reload the page to see the updated Topic tags. <a href='./index.php'>Reload page now.</a>";
+            echo "Tool was registered. <a href='./index.php'>Reload page now.</a>";
             echo "</div>";
         } else {
             echo "<div class=\"alert alert-danger alert-dismissable\">";
@@ -159,23 +176,41 @@ if ($_POST) {
 }
 ?>
 
-<!-- <div class="card container">
+<div class="card container">
     <div class="card-body">
         <h3 class="card-title text-center"><?php echo $category_name; ?></h3>
-        <h3 class="card-title">Create New Topic</h3>
-        <form id='create-topic-form' action='create_topic.php?id=<?php echo $id; ?>&category_name=<?php echo $category_name; ?>' method='post'>
+        <h3 class="card-title">Register an LTI Tool</h3>
+        <form id='register-tool-form' action='register_tool.php?id=<?php echo $id; ?>&category_name=<?php echo $category_name; ?>' method='post'>
             <div class="form-group">
-                <label for="topicName">Topic Name</label>
-                <input type="text" name='topic_name' class="form-control" id="topicName" placeholder="" required>
+                <label for="name">Name</label>
+                <input type="text" name='name' class="form-control" id="name" placeholder="" required>
             </div>
             <div class="form-group">
-                <label for="topic_url">External Website's URL</label>
-                <input type="text" name='topic_url' class="form-control" id="topic_url" placeholder="Only set this if you are linking to an external site.">
+                <label for="clientId">Provider ID</label>
+                <input type="text" name='client_id' class="form-control" id="clientId" placeholder="" required>
             </div>
-            <button type="submit" class="btn btn-primary">Create Topic</button>
+            <div class="form-group">
+                <label for="providerUrl">Provider (Tool) URL</label>
+                <input type="text" name='provider_url' class="form-control" id="providerUrl" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="consumerKey">Consumer (Platform) Key (iss)</label>
+                <!-- UnlockEd is inserted as the value here for simulation purposes -->
+                <input type="text" name='consumer_key' class="form-control" id="consumerKey" value="UnlockEd" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="version">LTI Version</label>
+                <!-- 1.3 is inserted as the value here for simulation purposes -->
+                <input type="text" name='version' class="form-control" id="version" value="1.3" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="secret">Secret</label>
+                <input type="text" name='secret' class="form-control" id="secret" placeholder="" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register Tool</button>
         </form>
     </div>
-</div> -->
+</div>
 
 <div class="card container">
     <div class="card-body">
@@ -249,13 +284,28 @@ Runs in it own scope.
 
 (function(){
 
-$('#create-topic-form').on('submit', function(e) {
+$('#register-tool-form').on('submit', function(e) {
 
     //prevent form submission
     e.preventDefault();
 
-    if (!e.target.topic_name.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Topic Name.');
+    if (!e.target.client_id.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Provider ID.');
+        return false;
+    }
+
+    if (!e.target.client_id.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Name.');
+        return false;
+    }
+
+    if (!e.target.secret.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Secret.');
+        return false;
+    }
+
+    if (!e.target.provider_url.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Provider URL.');
         return false;
     }
 
@@ -293,7 +343,6 @@ $('#create-topic-form').on('submit', function(e) {
 $('#displayText').on('click', function(e) {
 
     e.preventDefault();
-    console.log("I was clicked!");
 
     var $content = $("#lmsDataForm");
     if ($content.css("display") == "block") {

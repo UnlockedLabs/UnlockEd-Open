@@ -101,7 +101,6 @@ Runs in it own scope.
         e.preventDefault();
 
         var $id = $(this).data('category-id');
-        console.log($id);
         var $category_name = $(this).data('cat-name');
 
         scrollToTopCustom();
@@ -135,77 +134,77 @@ Runs in it own scope.
     });
 
     //edit a topic
-    $('.update-topic').on('click', function(e) {
+    // $('.update-topic').on('click', function(e) {
 
-        e.preventDefault();
+    //     e.preventDefault();
 
-        var $id = $(this).data('topic-id');
-        var $category_name = $(this).data('cat-name');
+    //     var $id = $(this).data('topic-id');
+    //     var $category_name = $(this).data('cat-name');
 
-        scrollToTopCustom();
+    //     scrollToTopCustom();
 
-        var $content = $("#content-area-div");
-        var url = 'update_topic.php';
+    //     var $content = $("#content-area-div");
+    //     var url = 'update_topic.php';
 
-        $.ajax({
-            type: 'GET',
-            url: url,
-            data: {
-                topic_id:$id,
-                category_name:$category_name
-            },
-            timeout: 30000,
-            beforeSend: function() {
-                $content.html('<div id="load">Loading</div>');
-            },
-            complete: function() {
-                $('#load').remove();
-            },
-            error: function(data) {
-                $content.html(data.responseText);
-            }
-        }).done(function(data) {
-            $content.html(data);
-        }).fail(function() {
-            $content.html('<div id="load">Please try again soon.</div>');            
-        });
-    });
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: url,
+    //         data: {
+    //             topic_id:$id,
+    //             category_name:$category_name
+    //         },
+    //         timeout: 30000,
+    //         beforeSend: function() {
+    //             $content.html('<div id="load">Loading</div>');
+    //         },
+    //         complete: function() {
+    //             $('#load').remove();
+    //         },
+    //         error: function(data) {
+    //             $content.html(data.responseText);
+    //         }
+    //     }).done(function(data) {
+    //         $content.html(data);
+    //     }).fail(function() {
+    //         $content.html('<div id="load">Please try again soon.</div>');            
+    //     });
+    // });
 
     //delete a topic
-    $('.delete-topic').on('click', function(e) {
+    // $('.delete-topic').on('click', function(e) {
 
-        e.preventDefault();
+    //     e.preventDefault();
 
-        var $id = $(this).data('topic-id');
-        var $category_name = $(this).data('cat-name');
+    //     var $id = $(this).data('topic-id');
+    //     var $category_name = $(this).data('cat-name');
 
-        scrollToTopCustom();
+    //     scrollToTopCustom();
 
-        var $content = $("#content-area-div");
-        var url = 'delete_topic.php';
+    //     var $content = $("#content-area-div");
+    //     var url = 'delete_topic.php';
 
-        $.ajax({
-            type: 'GET',
-            url: url,
-            data: {
-                topic_id:$id,
-                category_name:$category_name
-            },
-            timeout: 30000,
-            beforeSend: function() {
-                $content.html('<div id="load">Loading</div>');
-            },
-            complete: function() {
-                $('#load').remove();
-            },
-            error: function(data) {
-                $content.html(data.responseText);
-            }
-        }).done(function(data) {
-            $content.html(data);
-        }).fail(function() {
-            $content.html('<div id="load">Please try again soon.</div>');            
-        });
-    });
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: url,
+    //         data: {
+    //             topic_id:$id,
+    //             category_name:$category_name
+    //         },
+    //         timeout: 30000,
+    //         beforeSend: function() {
+    //             $content.html('<div id="load">Loading</div>');
+    //         },
+    //         complete: function() {
+    //             $('#load').remove();
+    //         },
+    //         error: function(data) {
+    //             $content.html(data.responseText);
+    //         }
+    //     }).done(function(data) {
+    //         $content.html(data);
+    //     }).fail(function() {
+    //         $content.html('<div id="load">Please try again soon.</div>');            
+    //     });
+    // });
     
 }) ();
