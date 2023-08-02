@@ -65,26 +65,26 @@ if ($_POST) {
         $tool->consumer_key = $consumer_key;
         $tool->version = $version;
         $tool->secret = $secret;
+    }
 
-        //ensure the tool isn't already registered
-        // if ($tool->toolExists()) {
-        //     //$tool->topic_name=$topic_name;
-        //     echo "<div class=\"alert alert-danger alert-dismissable\">";
-        //     echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
-        //     echo "Tool is already registered.";
-        //     echo "</div>";
-        if ($tool->register()) {
-            // tell the user tool was registered
-            echo "<div class=\"alert alert-success alert-dismissable\">";
-            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
-            echo "Tool was registered. <a href='./index.php'>Reload page now.</a>";
-            echo "</div>";
-        } else {
-            echo "<div class=\"alert alert-danger alert-dismissable\">";
-            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
-            echo "Unable to create topic.";
-            echo "</div>";
-        }
+    //ensure the tool isn't already registered
+    if ($tool->toolExists()) {
+        //$tool->topic_name=$topic_name;
+        echo "<div class=\"alert alert-danger alert-dismissable\">";
+        echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
+        echo "Tool is already registered.";
+        echo "</div>";
+    } elseif ($tool->register()) {
+        // tell the user tool was registered
+        echo "<div class=\"alert alert-success alert-dismissable\">";
+        echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
+        echo "Tool was registered. <a href='./index.php'>Reload page now.</a>";
+        echo "</div>";
+    } else {
+        echo "<div class=\"alert alert-danger alert-dismissable\">";
+        echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
+        echo "Unable to create topic.";
+        echo "</div>";
     }
 }
 ?>

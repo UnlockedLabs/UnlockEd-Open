@@ -101,8 +101,8 @@ class Tool
         $stmt->bindParam(':provider_url', $this->provider_url);
         $stmt->bindParam(':consumer_key', $this->consumer_key);
         $stmt->bindParam(':version', $this->version);
-        $stmt->bindParam(":created", $this->created);
-        $stmt->bindParam(":updated", $this->updated);
+        $stmt->bindParam(':created', $this->created);
+        $stmt->bindParam(':updated', $this->updated);
 
         if ($stmt->execute() && $stmt->rowCount()) {
             return true;
@@ -112,33 +112,30 @@ class Tool
     }
 
     /**
-     * Validate that topic exists
+     * Validate that tool is registered
      *
-     * @return bool true if topic exists, otherwise false
+     * @return bool true if tool is already in database, otherwise false
      */
-    // public function toolExists()
-    // {
-    //     $query = "SELECT initiate_login_url FROM " . $this->table_name . "
-    //     WHERE LOWER(topic_name) = ? AND category_id = ?
-    //     LIMIT 0,1";
+    public function toolExists()
+    {
+        $query = "SELECT initiate_login_url FROM " . $this->table_name . "
+        WHERE initiate_login_url = :provider_url
+        LIMIT 0,1";
 
-    //     $stmt = $this->conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
-    //     //we are lowering to prevent topics like Ohio University and ohio unversity
-    //     $topic_name_lower = strtolower($this->topic_name);
-    //     $stmt->bindParam(1, $topic_name_lower);
-    //     $stmt->bindParam(2, $this->category_id);
+        $stmt->bindParam(':provider_url', $this->provider_url);
 
-    //     $stmt->execute();
+        $stmt->execute();
 
-    //     $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-    //     if (isset($row['topic_name'])) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        if (isset($row['initiate_login_url'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Read topic and
