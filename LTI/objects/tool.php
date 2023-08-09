@@ -55,7 +55,7 @@ class Tool
     }
 
     /**
-     * Register LTI tool (Provider)
+     * Register LTI Tool
      *
      * @return bool true if insert successful, otherwise false
      */
@@ -136,102 +136,4 @@ class Tool
             return false;
         }
     }
-
-    /**
-     * Read topic and
-     * assign values to properties topic_name and topic_url
-     *
-     * @return void
-     */
-    // public function readOne()
-    // {
-    //     $query = "SELECT * FROM " . $this->table_name . "
-    //             WHERE id = ?
-    //             LIMIT 0,1";
-
-    //     $stmt = $this->conn->prepare($query);
-
-    //     $stmt->bindParam(1, $this->id);
-
-    //     $stmt->execute();
-
-    //     $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-
-    //     // assign values to object properties
-    //     $this->topic_name = $row['topic_name'];
-    //     $this->topic_url = $row['iframe'];
-    // }
-
-    /**
-     * Update topic's category id
-     *
-     * @return bool true if update successful, otherwise false
-     */
-    // public function reassignTopicCategoryId()
-    // {
-
-    //     $query = "UPDATE " . $this->table_name . "
-    //             SET category_id = :new_category_id
-    //             WHERE category_id = :category_id";
-
-    //     $stmt = $this->conn->prepare($query);
-
-    //     $stmt->bindParam(':new_category_id', $this->new_category_id);
-    //     $stmt->bindParam(':category_id', $this->category_id);
-
-    //     if ($stmt->execute() && $stmt->rowCount()) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    /**
-     * Update topic
-     *
-     * @return bool true if update successful, otherwise false
-     */
-    // public function update()
-    // {
-    //     $query = "UPDATE " . $this->table_name . "
-    //             SET topic_name = :topic_name,
-    //             iframe = :topic_url
-    //             WHERE id = :id";
-
-
-    //     $stmt = $this->conn->prepare($query);
-
-    //     $stmt->bindParam(':topic_name', $this->topic_name);
-    //     $stmt->bindParam(':topic_url', $this->topic_url);
-    //     $stmt->bindParam(':id', $this->id);
-
-    //     if ($stmt->execute() && $stmt->rowCount()) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    /**
-     * Delete topic
-     *
-     * @return bool true if delete successful, otherwise false
-     */
-    // public function delete()
-    // {
-    //     $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
-
-    //     $stmt = $this->conn->prepare($query);
-
-    //     // sanitize
-    //     $this->id = htmlspecialchars(strip_tags($this->id));
-
-    //     $stmt->bindParam(1, $this->id);
-
-    //     if ($stmt->execute() && $stmt->rowCount()) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
 }
