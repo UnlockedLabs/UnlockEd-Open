@@ -31,12 +31,13 @@ This software requires:
 *	MySQL 8.0+
 
 ## Xampp Installation:
-One option, is to install Xampp, which includes all of the above requirements. This would typically by done on a clean
-system, because otherwise you are likely to already have something like mysql or mariadb installed and they can conflict
+One option is to install Xampp, which includes all of the above requirements. This would ideally by done on a clean
+system, because otherwise if mysql or mariadb are installed and they can cause conflicts.
+#### To install with xampp:
 
     wget https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.2.4/xampp-linux-x64-8.2.4-0-installer.run -o xampp.run
 
-    sudo chmod +x xampp.run
+    sudo chmod +x xampp.run && ./xampp.run
 
 This will bring you through the GUI installation process. You will typically install in /opt/lampp and then you should
 clone the UnlockEd git repository to /opt/lampp/htdocs (which will require sudo privilages to write to that directory)
@@ -63,10 +64,14 @@ and we need to add that to our `/etc/my.cnf` file, with the port 3306. if no /et
 
     sudo curl https://gist.github.com/PThorpe92/885d31810852d3d0360a4982bd96febf/raw/bbeaaddb751eb05073f38ab443a21ffc3c551a79/my.cnf -o /etc/my.cnf
 
-Now after `sudo ./opt/lampp/xampp restart` you should be able to log into mysql from the command line or from `http://localhost/phpmyadmin`
-and create the tables in step 4 below, and pick up from there.
+Now after `sudo ./opt/lampp/xampp restart` you should be able to log into mysql from the command line
 
-## Usage
+    sudo -u root mysql
+
+or from the convenient console at `http://localhost/phpmyadmin` in the browser
+and create the tables as described in step 4 below, and pick up from there.
+
+## Default installation
 Deployment of UnlockED is intended to be very straightforward. It can be deployed by:
 
 1. Cloning this project repo to the root of their apache web server
