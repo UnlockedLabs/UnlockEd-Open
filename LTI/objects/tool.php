@@ -127,12 +127,12 @@ class Tool
     public function toolExists()
     {
         $query = "SELECT initiate_login_url FROM " . $this->table_name . "
-        WHERE initiate_login_url = :provider_url
+        WHERE initiate_login_url = :login_url
         LIMIT 0,1";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':provider_url', $this->provider_url);
+        $stmt->bindParam(':login_url', $this->login_url);
 
         $stmt->execute();
 
