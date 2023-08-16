@@ -41,34 +41,30 @@ if ($_POST) {
     // set tool property values
     $name = $_POST['name'];
     $client_id = $_POST['client_id'];
-    $login_url = $_POST['login_url'];
-    $launch_url = $_POST['launch_url'];
+    $provider_url = $_POST['provider_url'];
     $consumer_key = $_POST['consumer_key'];
     $version = $_POST['version'];
-    $public_key = $_POST['public_key'];
+    $secret = $_POST['secret'];
     
     if ((empty($name))) {
-        echo "<div class='alert alert-danger'>Display Name cannot be empty.</div>";
+        echo "<div class='alert alert-danger'>Name cannot be empty.</div>";
     } elseif ((empty($client_id))) {
         echo "<div class='alert alert-danger'>Provider ID cannot be empty.</div>";
-    } elseif ((empty($login_url))) {
-        echo "<div class='alert alert-danger'>Login URL cannot be empty.</div>";
-    } elseif ((empty($launch_url))) {
-        echo "<div class='alert alert-danger'>Launch URL cannot be empty.</div>";
+    } elseif ((empty($provider_url))) {
+        echo "<div class='alert alert-danger'>Provider URL cannot be empty.</div>";
     } elseif ((empty($consumer_key))) {
         echo "<div class='alert alert-danger'>Consumer (Platform) Key cannot be empty.</div>";
     } elseif ((empty($version))) {
         echo "<div class='alert alert-danger'>LTI Version cannot be empty.</div>";
-    } elseif ((empty($public_key))) {
-        echo "<div class='alert alert-danger'>Public Key cannot be empty.</div>";
+    } elseif ((empty($secret))) {
+        echo "<div class='alert alert-danger'>Secret cannot be empty.</div>";
     } else {
         $tool->name = $name;
         $tool->client_id = $client_id;
-        $tool->login_url = $login_url;
-        $tool->launch_url = $launch_url;
+        $tool->provider_url = $provider_url;
         $tool->consumer_key = $consumer_key;
         $tool->version = $version;
-        $tool->public_key = $public_key;
+        $tool->secret = $secret;
     }
 
     //ensure the tool isn't already registered
@@ -96,23 +92,19 @@ if ($_POST) {
 <div class="card container">
     <div class="card-body">
         <h3 class="card-title text-center"><?php echo $category_name; ?></h3>
-        <h3 class="card-title">Register an LTI Tool (Tool Settings)</h3>
+        <h3 class="card-title">Register an LTI Tool</h3>
         <form id='register-tool-form' action='register_tool.php?id=<?php echo $id; ?>&category_name=<?php echo $category_name; ?>' method='post'>
             <div class="form-group">
                 <label for="name">Display Name</label>
                 <input type="text" name='name' class="form-control" id="name" placeholder="" required>
             </div>
             <div class="form-group">
-                <label for="loginUrl">Login URL (OIDC Login URI)</label>
-                <input type="text" name='login_url' class="form-control" id="loginUrl" placeholder="" required>
-            </div>
-            <div class="form-group">
-                <label for="launchUrl">Launch URL</label>
-                <input type="text" name='launch_url' class="form-control" id="launchUrl" placeholder="" required>
-            </div>
-            <div class="form-group">
-                <label for="clientId">Client ID</label>
+                <label for="clientId">Provider ID</label>
                 <input type="text" name='client_id' class="form-control" id="clientId" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="providerUrl">Provider (Tool) URL</label>
+                <input type="text" name='provider_url' class="form-control" id="providerUrl" placeholder="" required>
             </div>
             <div class="form-group">
                 <label for="consumerKey">Consumer (Platform) Key (iss)</label>
@@ -124,13 +116,9 @@ if ($_POST) {
                 <!-- 1.3 is inserted as the value here for simulation purposes -->
                 <input type="text" name='version' class="form-control" id="version" value="1.3" placeholder="" required>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="secret">Secret</label>
                 <input type="text" name='secret' class="form-control" id="secret" placeholder="" required>
-            </div> -->
-            <div class="form-group">
-                <label for="publicKey">Public Key</label>
-                <input type="text" name='public_key' class="form-control" id="publicKey" placeholder="" required>
             </div>
             <button type="submit" class="btn btn-primary">Register Tool</button>
         </form>
@@ -151,38 +139,23 @@ $('#register-tool-form').on('submit', function(e) {
     //prevent form submission
     e.preventDefault();
 
-    if (!e.target.name.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Name.');
+    if (!e.target.client_id.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Provider ID.');
         return false;
     }
 
     if (!e.target.client_id.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Client ID.');
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Name.');
         return false;
     }
 
-    if (!e.target.login_url.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply OIDC Login URL.');
+    if (!e.target.secret.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Secret.');
         return false;
     }
 
-    if (!e.target.launch_url.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Launch URL.');
-        return false;
-    }
-
-    if (!e.target.consumer_key.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Consumer Key.');
-        return false;
-    }
-
-    if (!e.target.version.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Version.');
-        return false;
-    }
-
-    if (!e.target.public_key.value.trim()) {
-        ul.errorSwalAlert("Info Warning!", 'Must Supply Public Key.');
+    if (!e.target.provider_url.value.trim()) {
+        ul.errorSwalAlert("Info Warning!", 'Must Supply Provider URL.');
         return false;
     }
 

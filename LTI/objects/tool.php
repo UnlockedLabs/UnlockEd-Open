@@ -34,12 +34,14 @@ class Tool
     private $conn;
     private $table_name = "lti2_tool";
 
-    public $client_id;            ///< was going to use this for tool_pk, but the data type doesn't support GUID
     public $name;                 ///< name of the tool
-    public $secret;               ///< shared secret with consumer
-    public $provider_url;         ///< the LTI provider url, which is currently stored as initiate_login_url in LTI 1.1 db
+    public $client_id;            ///< was going to use this for tool_pk, but the data type doesn't support GUID
+    public $login_url;            ///< the OIDC login url, which is currently stored as initiate_login_url
+    public $launch_url;           ///< the fully qualified domain name where the tool is hosted
     public $consumer_key;         ///< can be the name of the consumer, which is currently hardcoded as "UnlockEd" (perhaps turn this into GUID)
     public $version;              ///< version of LTI (value hardcoded into form currently)
+    public $public_key;               ///< shared secret with consumer
+    // public $secret;               ///< shared secret with consumer
     public $enabled;              ///< currently hardcoded as true
     public $created;              ///< auto-generated datetime
     public $updated;              ///< auto-generated datetime
@@ -65,10 +67,12 @@ class Tool
                 " SET 
                     -- tool_pk = :tool_pk,
                     name = :name,
+                    initiate_login_url = :login_url,
+                    redirection_uris = :launch_url,
                     consumer_key = :consumer_key,
-                    secret = :secret, 
-                    initiate_login_url = :provider_url,
                     lti_version = :version,
+                    public_key = :public_key,
+                    -- secret = :secret, 
                     enabled = :enabled,
                     created = :created,
                     updated = :updated";
@@ -89,20 +93,24 @@ class Tool
 
         // sanitize
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->secret = htmlspecialchars(strip_tags($this->secret));
-        $this->provider_url = htmlspecialchars(strip_tags($this->provider_url));
+        $this->login_url = htmlspecialchars(strip_tags($this->login_url));
+        $this->launch_url = htmlspecialchars(strip_tags($this->launch_url));
         $this->consumer_key = htmlspecialchars(strip_tags($this->consumer_key));
         $this->version = htmlspecialchars(strip_tags($this->version));
+        $this->public_key = htmlspecialchars(strip_tags($this->public_key));
+        // $this->secret = htmlspecialchars(strip_tags($this->secret));
 
         // $stmt->bindParam(':tool_pk', $this->client_id);
         $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':enabled', $this->enabled);
-        $stmt->bindParam(':secret', $this->secret);
-        $stmt->bindParam(':provider_url', $this->provider_url);
+        $stmt->bindParam(':login_url', $this->login_url);
+        $stmt->bindParam(':launch_url', $this->launch_url);
         $stmt->bindParam(':consumer_key', $this->consumer_key);
         $stmt->bindParam(':version', $this->version);
+        $stmt->bindParam(':public_key', $this->public_key);
+        $stmt->bindParam(':enabled', $this->enabled);
         $stmt->bindParam(':created', $this->created);
         $stmt->bindParam(':updated', $this->updated);
+        // $stmt->bindParam(':secret', $this->secret);
 
         if ($stmt->execute() && $stmt->rowCount()) {
             return true;
