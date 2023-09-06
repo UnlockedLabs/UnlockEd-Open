@@ -700,7 +700,6 @@ INSERT INTO `topics` (`id`, `topic_name`, `category_id`, `iframe`, `access_id`, 
 ('9d6ad529-282b-4bc9-be16-53fc30504e94', 'UMSL Canvas Courses', 'd711973f-3355-41f6-91eb-e2a7392a67f6', 'http://localhost:3000/', 1, 1, '2021-12-07 03:35:09'),
 ('a6228817-6967-4897-8856-b9cb3fb622aa', 'Language Arts', '0fed849c-cb14-4121-bbd5-a4d458bd6a5f', '', 2, 1, '2021-12-07 03:35:09'),
 ('ad1853ad-66e0-4bbb-a5fe-d79632d07b1d', 'Unassigned Courses', '94876a68-f185-4967-b5fb-f90859ffd5a8', '', 1, 1, '2021-12-07 03:35:09'),
-('f5bd24fb-81a7-4a95-9cdf-5b09183bcada', 'Wikipedia for Schools', 'ce240c1c-2e71-4ada-a11a-8fe1b033860d', 'http://thelearningcenter.doc.mo.gov:8080/en-wikipedia_for_schools-static/index.html', 1, 1, '2021-12-07 03:35:09'),
 ('f8613e73-a309-4396-9002-d9dfc56ae8f1', 'Wash U. Canvas Courses', '0c0b7ed8-d54e-47b9-a32c-fb28c857ac1b', 'http://localhost:3000/', 2, 2, '2021-12-07 03:35:09');
 
 -- --------------------------------------------------------

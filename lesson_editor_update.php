@@ -77,11 +77,7 @@ CKEDITOR.config.readOnly = false;
 CKEDITOR.config.height = 'auto';
 initSample();
 //console.table(CKEDITOR.config);
-//http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/6457071
-//CKEDITOR.config.toolbarGroups = [];
-//console.table(CKEDITOR.plugins);
-//http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/13611386
-//http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/3147670
+
 
 /*  
     This (shown.bs.modal) event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete).
@@ -163,7 +159,7 @@ $('.lesson-instructions').on('click', function(e) {
             //pass
         },
         success: function(data) {
-            //http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/3147670
+            
             CKEDITOR.instances["editor"].setData(data);
         },
         error: function(data) {

@@ -223,7 +223,7 @@ $(".file-uploader").pluploadQueue({
 //cancel file upload
 var custom_cancelled = false;
 function cancelFileUpload() {
-    //http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/4720928
+    
     $(".file-uploader").pluploadQueue().splice();
     $(".file-uploader").pluploadQueue().refresh();
     custom_cancelled = true;

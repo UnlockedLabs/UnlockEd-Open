@@ -16,7 +16,7 @@ window.addEventListener("beforeunload", function (e) {
     //alert('what do you want?');
 });
 
-//http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/3068913
+
 
 //ini_set('session.gc_maxlifetime', 60*60*22); //22h
 //echo ini_get("session.gc_maxlifetime"); 

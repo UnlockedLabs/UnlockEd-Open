@@ -8,13 +8,13 @@ namespace unlockedlabs\unlocked;
  */
 
 // detect session time out
-//http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/520237
+
 
 /**
  * @todo 
  * ana_category.php
  * detect when client closes browswer
- * http://primeauxillaryserver.doc.mo.gov:8081/stackoverflow/10849561
+ 
  */
 
 require_once dirname(__FILE__).'/../session-validation.php';
@@ -36,7 +36,7 @@ echo 'categotry id: ' . $_GET['id'] . ' from ana_category.php<br/>';
 //$_SESSION['category_id'] gets set to 0 on login see users.php.
 if ($_GET['id'] != $_SESSION['category_id'] ) {
 
-    //set new category id
+    //set new category i
     $_SESSION['category_id'] = $_GET['id'];
 
     //set properties

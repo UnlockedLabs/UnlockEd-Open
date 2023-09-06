@@ -66,7 +66,6 @@ function insertIntoCategoryTopics($db)
     VALUES
     ('05c2ef38-9caa-477e-8c8f-dd2b8e4630cb','Wash. U. Courses', '0c0b7ed8-d54e-47b9-a32c-fb28c857ac1b', 'http://localhost:3000', '1', '1'),
     ('03a13e51-4569-4e98-9761-2d77e823a5f3','JSTOR', '0fed849c-cb14-4121-bbd5-a4d458bd6a5f', '', '1', '1'),
-    ('0cf08ac4-6bab-41d8-8cc6-4bbbb4a14e99','Wikipedia for Schools', '0fed849c-cb14-4121-bbd5-a4d458bd6a5f', 'http://thelearningcenter.doc.mo.gov:8080/en-wikipedia_for_schools-static/index.html', '1', '1'),
     ('20efa169-e00e-48e9-9798-2bd7fd1646a1','Gutenberg', '0fed849c-cb14-4121-bbd5-a4d458bd6a5f', '', '1', '1'),
     ('438323df-c4d7-4a84-b5ca-d0078aedd7a7','Khan Academy', '9419d847-d80f-42b4-aeda-675b100bd0b9', '', '1', '1'),
     ('f5bd24fb-81a7-4a95-9cdf-5b09183bcada','Unassigned Courses', '94876a68-f185-4967-b5fb-f90859ffd5a8', '', '1', '1');";
