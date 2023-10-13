@@ -75,9 +75,14 @@ and create the tables as described in step 4 below, and pick up from there.
 Deployment of UnlockED is intended to be very straightforward. It can be deployed by:
 
 1. Cloning this project repo to the root of their apache web server
+
 2. Set permissions on the cloned directory to allow apache to write to the directory (UNSAFE QUICK ANSWER: chmod 777 -R UnlockEd-Open)
-3. Setting up a virtual host that points to the root directory of this project
+
+3. Adding the appropriate _ip:port_ to your `/etc/hosts` file (if you are intending on using a domain name, or accessing unlockEd anywhere 
+  but your local machine, you can skip this step) for example: `sudo echo "localhost:80 UnlockEd-Open" >> /etc/hosts`
+
 4. Create the following MySQL databases: 'learning_center_api_db' and 'learning_center_api_analytics'
+
 5. Adjusting the database connection settings in the /config/database.php and /analytics/config/database.php files to match those of your MySql server:
 
         // specify your own database credentials
