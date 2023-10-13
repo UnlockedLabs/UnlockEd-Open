@@ -17,7 +17,7 @@
  * @link     http://unlockedlabs.org
  */
 
- namespace unlockedlabs\unlocked;
+namespace unlockedlabs\unlocked;
 
 require_once 'session-validation.php';
 //ensure admin user (admin is 2 and above)
@@ -80,7 +80,6 @@ if ($_POST) {
     }
 }
 ?>
-     
 
 <div class="card container">
     <div class="card-body">
@@ -99,7 +98,6 @@ if ($_POST) {
         </form>
     </div>
 </div>
-
 
 <script>
 /* 
@@ -148,6 +146,7 @@ $('#create-topic-form').on('submit', function(e) {
 
 });
 }) ();
+
 </script>
 
 <?php

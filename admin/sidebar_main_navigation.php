@@ -27,6 +27,12 @@
                     <span>User Management</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="dp_management.php" class="nav-link" onclick="return ul.admin_fetch_html(this.href, '#content-area-div');">
+                <i class="icon-star-empty3"></i>
+                    <span>Downstream Provider Management</span>
+            </a>
+        </li>
 
 
     </ul>

@@ -91,6 +91,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="register_tool.php" title="Register a Tool" id="tool-register" class="tool-register category-actions nav-link">
+                            <i class="icon-add"></i>
+                            Register a Tool
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="update_category.php" title="Edit This Category" id="category-edit" class="update-category category-actions nav-link">
                             <i class="icon-pencil3 my-auto"></i>
                             <span>Edit&nbsp;<span class="catName">this Category</span></span>
